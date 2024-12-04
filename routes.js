@@ -4,7 +4,8 @@ const { addProduk, getProduk, getProdukById, getProdukUser, getProdukByIdUser, p
 const { addArtikel, getArtikel, getArtikelById, putArtikel, deleteArtikel, getArtikelUser, getArtikelByIdUser } = require('./controllerArtikel/controllerArtikel');
 const { addCheckout, getCheckout, getCheckoutById, getCheckoutByIdUser, putCheckout, deleteCheckout, addCheckoutUser, getCheckoutUser } = require('./controllerCheckout/controllerCheckout');
 const { addPromo, getPromo, getPromoById, putPromo, getPromoByIdUser, getPromoUser, deletePromo } = require('./controllerPromo/controllerPromo');
-const { getUser, getUserById } = require('./controllerUser/controllerUser');
+const { getUser, getUserById, putUser, deleteUser } = require('./controllerUser/controllerUser');
+const { addKeranjang, getKeranjangUser, getKeranjangByIdUser, putKeranjang, deleteKeranjang } = require('./controllerKeranjang/controllerKeranjang');
 const router = express.Router();
 
 
@@ -71,10 +72,20 @@ router.put ('/dashboard/promo/:id', checkRole('admin'), putPromo)
 router.delete ('/dashboard/promo/:id', checkRole('admin'), deletePromo)
 //ROUTE PROMO END 
 
-
 //ROUTE USER
 router.get ('/dashboard/user', checkRole('admin'), getUser)
-router.get ('/dashboard/user', checkRole('admin'), getUserById)
+router.get ('/dashboard/user/:id', checkRole('admin'), getUserById)
+router.put ('/user/:id', putUser)
+router.delete ('/user/:id', deleteUser)
+router.delete ('/dashboard/user/:id', checkRole('admin'), deleteUser)
 //ROUTE USER END
+
+//ROUTE KERANJANG 
+router.post ('/keranjang', addKeranjang)
+router.get ('/keranjang', getKeranjangUser)
+router.get ('/keranjang/:id', getKeranjangByIdUser)
+router.put ('/keranjang/:id', putKeranjang)
+router.delete ('/keranjang/:id', deleteKeranjang)
+//ROUTE KERANJANG END
 
 module.exports = router;
