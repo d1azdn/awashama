@@ -4,6 +4,7 @@ const { addProduk, getProduk, getProdukById, getProdukUser, getProdukByIdUser, p
 const { addArtikel, getArtikel, getArtikelById, putArtikel, deleteArtikel, getArtikelUser, getArtikelByIdUser } = require('./controllerArtikel/controllerArtikel');
 const { addCheckout, getCheckout, getCheckoutById, getCheckoutByIdUser, putCheckout, deleteCheckout, addCheckoutUser, getCheckoutUser } = require('./controllerCheckout/controllerCheckout');
 const { addPromo, getPromo, getPromoById, putPromo, getPromoByIdUser, getPromoUser, deletePromo } = require('./controllerPromo/controllerPromo');
+const { getUser, getUserById } = require('./controllerUser/controllerUser');
 const router = express.Router();
 
 
@@ -69,5 +70,11 @@ router.get ('/promo/:id', getPromoByIdUser)
 router.put ('/dashboard/promo/:id', checkRole('admin'), putPromo)
 router.delete ('/dashboard/promo/:id', checkRole('admin'), deletePromo)
 //ROUTE PROMO END 
+
+
+//ROUTE USER
+router.get ('/dashboard/user', checkRole('admin'), getUser)
+router.get ('/dashboard/user', checkRole('admin'), getUserById)
+//ROUTE USER END
 
 module.exports = router;
