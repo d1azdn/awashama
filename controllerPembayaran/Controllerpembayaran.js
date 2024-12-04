@@ -1,3 +1,8 @@
+const express = require('express');
+const router = express.Router();
+const connection = require('../db');
+const { checkRole } = require('../middlewares/authMiddleware'); 
+
 // POST (ADMIN)
 const addPembayaran = async (req, res) => {
     const { nama_pembayaran } = req.body;
@@ -6,7 +11,7 @@ const addPembayaran = async (req, res) => {
         return res.status(400).json({ error: 'Data harus diisi!' });
     }
 
-    const sql = 'INSERT INTO pembayaran(nama_pemabayaran) VALUES (?)';
+    const sql = 'INSERT INTO pembayaran(nama_pembayaran) VALUES (?)';
     connection.query(sql, [nama_pembayaran], (err, result) => {
         if (err) {
             console.error(err);
@@ -43,32 +48,6 @@ const getPembayaranById = async (req, res) => {
     });
 };
 
-// GET (USER)
-const getPembayaranUser = async (req, res) => {
-    const query = 'SELECT * FROM pembayaran';
-    connection.query(query, (err, results) => {
-        if (err) {
-            console.error('Gagal Menampilkan Pembayaran:', err);
-            return res.status(500).send('Gagal Menampilkan Pembayaran');
-        }
-        res.json(results);
-    });
-};
-
-// GET by id (USER)
-const getPembayaranByIdUser = async (req, res) => {
-    const query = 'SELECT * FROM pembayaran WHERE id = ?';
-    connection.query(query, [req.params.id], (err, result) => {
-        if (err) {
-            console.error('Error fetching data:', err);
-            return res.status(500).send('Error fetching data');
-        }
-        if (result.length === 0) {
-            return res.status(404).send('pembayaran Tidak Ditemukan');
-        }
-        res.json(result[0]);
-    });
-};
 
 // PUT (ADMIN)
 const putPembayaran = async (req, res) => {
@@ -79,7 +58,7 @@ const putPembayaran = async (req, res) => {
         return res.status(400).send('Data harus diisi');
     }
 
-    const query = 'UPDATE pembayaran SET nama_pembayaran = ?, WHERE id = ?';
+    const query = 'UPDATE pembayaran SET nama_pembayaran = ? WHERE id = ?';
     connection.query(query, [nama_pembayaran, pembayaranId], (err, result) => {
         if (err) {
             console.error('Error updating data:', err);
@@ -107,4 +86,4 @@ const deletePembayaran = async (req, res) => {
     });
 };
 
-module.exports = { addPembayaran,  getPembayaran, getPembayaranById, getPembayaranUser,  getPembayaranByIdUser, putPembayaran, deletePembayaran }
+module.exports = { addPembayaran,  getPembayaran, getPembayaranById, putPembayaran, deletePembayaran }

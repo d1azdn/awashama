@@ -6,6 +6,8 @@ const { addCheckout, getCheckout, getCheckoutById, getCheckoutByIdUser, putCheck
 const { addPromo, getPromo, getPromoById, putPromo, getPromoByIdUser, getPromoUser, deletePromo } = require('./controllerPromo/controllerPromo');
 const { getUser, getUserById, putUser, deleteUser } = require('./controllerUser/controllerUser');
 const { addKeranjang, getKeranjangUser, getKeranjangByIdUser, putKeranjang, deleteKeranjang } = require('./controllerKeranjang/controllerKeranjang');
+const { addPembayaran, getPembayaran, getPembayaranById, putPembayaran, deletePembayaran } = require('./controllerPembayaran/Controllerpembayaran');
+const { addPengiriman, getPengiriman, getPengirimanById, putPengiriman, deletePengiriman } = require('./controllerPengiriman/controllerPengiriman');
 const router = express.Router();
 
 
@@ -88,4 +90,19 @@ router.put ('/keranjang/:id', putKeranjang)
 router.delete ('/keranjang/:id', deleteKeranjang)
 //ROUTE KERANJANG END
 
+// ROUTE PEMBAYARAN
+router.post ('/dashboard/pembayaran', checkRole('admin'), addPembayaran)
+router.get ('/dashboard/pembayaran', checkRole('admin'), getPembayaran)
+router.get ('/dashboard/pembayaran/:id', checkRole('admin'), getPembayaranById)
+router.put ('/dashboard/pembayaran/:id', checkRole('admin'), putPembayaran)
+router.delete ('/dashboard/pembayaran/:id', checkRole('admin'), deletePembayaran)
+// ROUTE PEMBAYARAN END
+
+//ROUTE PENGIRIMAN
+router.post ('/dashboard/pengiriman', checkRole('admin'), addPengiriman)
+router.get ('/dashboard/pengiriman', checkRole('admin'), getPengiriman)
+router.get ('/dashboard/pengiriman/:id', checkRole('admin'), getPengirimanById)
+router.put ('/dashboard/pengiriman/:id', checkRole('admin'), putPengiriman)
+router.delete ('/dashboard/pengiriman/:id', checkRole('admin'), deletePengiriman)
+//ROUTE PENGIRIMAN END
 module.exports = router;
