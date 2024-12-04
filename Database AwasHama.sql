@@ -30,7 +30,7 @@ CREATE TABLE `artikel` (
   `deskripsi` varchar(300) NOT NULL,
   `kategori` varchar(8000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `checkout` (
   `note_pelanggan` text,
   `status` enum('dikemas','dikirim','berhasil') NOT NULL DEFAULT 'dikemas',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `checkout` (
 
 LOCK TABLES `checkout` WRITE;
 /*!40000 ALTER TABLE `checkout` DISABLE KEYS */;
-INSERT INTO `checkout` VALUES (1,'1','1',50,'jnt','jalan silber','transfer','11.11','dipercepat bosku','dikemas'),(2,'3','1',50,'jnt','jhehehe','blalbal','11.11','kiwkiw','dikirim');
+INSERT INTO `checkout` VALUES (1,'1','1',50,'jnt','jalan silber','transfer','11.11','dipercepat bosku','dikemas'),(2,'3','1',50,'jnt','jhehehe','blalbal','11.11','kiwkiw','dikirim'),(5,'1','1',50,'jnt','jalan silberanti','transfer','11.11','dipercepat bosku hihiw','dikemas');
 /*!40000 ALTER TABLE `checkout` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +102,7 @@ CREATE TABLE `keranjang` (
 
 LOCK TABLES `keranjang` WRITE;
 /*!40000 ALTER TABLE `keranjang` DISABLE KEYS */;
-INSERT INTO `keranjang` VALUES (1,'1','1',2,'jnt','jl,Silaberanti GG Kelapa','transfer','23.11','tolong di percepat ya proses nya'),(4,'12','2',5,'kirim','palembang','tranfer','11.11','kiwkiw'),(5,'12','3',5,'jnt','palembang','tranfer','11.11','di percepat bosku');
+INSERT INTO `keranjang` VALUES (1,'1','1',2,'jnt','jl,Silaberanti GG Kelapa','transfer','23.11','tolong di percepat ya proses nya'),(4,'12','2',5,'kirim','palembang','tranfer','11.11','kiwkiw');
 /*!40000 ALTER TABLE `keranjang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +117,7 @@ CREATE TABLE `pembayaran` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nama_pembayaran` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +141,7 @@ CREATE TABLE `pengiriman` (
   `id` int NOT NULL AUTO_INCREMENT,
   `jenis_pengiriman` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `pengiriman` (
 
 LOCK TABLES `pengiriman` WRITE;
 /*!40000 ALTER TABLE `pengiriman` DISABLE KEYS */;
-INSERT INTO `pengiriman` VALUES (1,'jnt'),(3,'jnt');
+INSERT INTO `pengiriman` VALUES (1,'jnt'),(3,'jnt'),(4,'express'),(5,'kiwkiw');
 /*!40000 ALTER TABLE `pengiriman` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +168,7 @@ CREATE TABLE `produk` (
   `stok` int unsigned NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `produk_chk_1` CHECK ((`harga` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -192,10 +192,10 @@ CREATE TABLE `promo` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nama_promo` varchar(45) NOT NULL,
   `diskon` int DEFAULT NULL,
-  `kategori_diskon` enum('persen',' harga') NOT NULL,
+  `kategori_diskon` enum('persen','harga') DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nama_promo_UNIQUE` (`nama_promo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `promo` (
 
 LOCK TABLES `promo` WRITE;
 /*!40000 ALTER TABLE `promo` DISABLE KEYS */;
-INSERT INTO `promo` VALUES (1,'uhuy',50,'persen'),(3,'11.11',50000,'persen');
+INSERT INTO `promo` VALUES (1,'uhuy',50,'persen'),(3,'11.11',50000,'persen'),(4,'121',60000,'persen'),(7,'yuhuuu',60000,'persen'),(8,'kiwkiw',70,'harga'),(9,'kiw',80000,'harga'),(12,'ahay',80,'persen'),(13,'yahu',50000,'harga');
 /*!40000 ALTER TABLE `promo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +222,7 @@ CREATE TABLE `user` (
   `role` enum('admin','user') NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +231,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'alif','$2b$10$DIb1vQEydMZJN7umsgbd8ORe6OUn7QfaC8MDU2aQG5/GfbkNcjOiS','user'),(3,'billi','$2b$10$dZ2lL3gh0uAOQxZ07dGRn.E/Vea0Cglc3qEEEiNcVg1b5uG0wbNHK','user'),(4,'belle','$2b$10$PfmUVT6xjKxg0FGu0GFQ3uPrLbqajPMYzTVEPA892nIl3/ipgxEC.','user'),(8,'diaz','$2b$10$ndfJXtG2QZNwJcCL7LK0b.NrcPD6lYBV.C/TovkC/8HL94f/NwCLi','user'),(11,'shintia','$2b$10$BAJncDotBnOKzB1mDqEPuexU.Pd.Q5xfEDyc3gDFQM4ksizog6Wuu','user'),(12,'alifkurniawan','$2b$10$oY7SD/r.i6rwHXsaNkxR3urPIA7WR.QR0fmxmJtIIJLTwYfXNvVcC','user'),(13,'MuhamadAlifKurniawan','$2b$10$7t1a08xjCNhaXu5cib1n3.ISSqCf9o8DpmlCIBGL8vX9.GKOpaz4i','user'),(14,'mahdi','$2b$10$CMo408l99k7qXsBrGEyDmuFfVSdo3itHMJevw4uTpL57JIgJmv2Se','user'),(16,'wapek','$2b$10$hlvPJybVgW77zxy4C46rz.htlA.HEPYNhqdmQIEfTAavUL2p0/xqG','admin'),(17,'putri','$2b$10$iAEFx2lipYEAVE7Z40lui.6IpKaphE2TVUOYTt845PCiVtlnMj4Yq','admin');
+INSERT INTO `user` VALUES (2,'alif','$2b$10$DIb1vQEydMZJN7umsgbd8ORe6OUn7QfaC8MDU2aQG5/GfbkNcjOiS','user'),(4,'belle','$2b$10$PfmUVT6xjKxg0FGu0GFQ3uPrLbqajPMYzTVEPA892nIl3/ipgxEC.','user'),(11,'shintia','$2b$10$BAJncDotBnOKzB1mDqEPuexU.Pd.Q5xfEDyc3gDFQM4ksizog6Wuu','user'),(12,'alifkurniawan','$2b$10$oY7SD/r.i6rwHXsaNkxR3urPIA7WR.QR0fmxmJtIIJLTwYfXNvVcC','user'),(13,'MuhamadAlifKurniawan','$2b$10$7t1a08xjCNhaXu5cib1n3.ISSqCf9o8DpmlCIBGL8vX9.GKOpaz4i','user'),(14,'mahdi','$2b$10$CMo408l99k7qXsBrGEyDmuFfVSdo3itHMJevw4uTpL57JIgJmv2Se','user'),(16,'wapek','$2b$10$hlvPJybVgW77zxy4C46rz.htlA.HEPYNhqdmQIEfTAavUL2p0/xqG','admin'),(17,'putri','$2b$10$iAEFx2lipYEAVE7Z40lui.6IpKaphE2TVUOYTt845PCiVtlnMj4Yq','admin'),(18,'kikiw','$2b$10$G2F8EaacAXTPm6ZwJeCV3eDI76nej5hVTvzUzCCAy1ti3RmrF0Dbi','user'),(19,'kiwkiw','$2b$10$a6.ctGZlxVkydsqTcLJBq.ZN8N3AYy52BGDMK4Koq7IIEMbUhpc9a','admin'),(20,'cmew','$2b$10$OATdZZKbja9dY1q6mOgL4.gVyLNLYfwS23luC6lwNlYAc3r1UiLZG','admin'),(21,'cmeww','$2b$10$ubKNfaQrklwQuhOCvWdP4uWMITakLYCYv/S99V4YsgUDGorfUmKwy','user'),(22,'alifganteng','$2b$10$W5StuUXkcEkUUozZFRG3AumHhYOSBhzsfZZUcxW3Y/1cm2h8MeqAG','user');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -244,4 +244,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-02 13:58:10
+-- Dump completed on 2024-12-04 16:23:30
