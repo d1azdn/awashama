@@ -1,135 +1,126 @@
-export default function Home(){
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
+function FiturCard(props){
     return(
         <>
-    
-    <div class="container">
-        <img src="./src/assets/gambarhome.jpg"/>
-        <h1>Terpenuhi Kebutuhan Untuk Keberlanjutan Pertanian </h1>
-        <p>Mitra digital utama bagi petani padi di Solok dengan menyediakan produk pupuk dan anti hama berkualitas, 
-            layanan edukasi, serta konsultasi langsung dengan ahli pertanian.</p>
-        <div class="button">
-            <div class="primary">
-                <button>Cari Kebutuhan<i class="fa-solid fa-arrow-right"></i></button>
+         <div className="card-1 text-center shadow-md p-10 rounded-lg hover:scale-105 duration-200">
+              <img src={props.src} alt="..." className="mx-auto mb-4" width={100} />
+              <h3 className="text-xl font-semibold text-awashama-darkgray mb-2">{props.title}</h3>
+              <p className="text-gray-600 text-awashama-darkgray ">{props.text}</p>
             </div>
-            <div class="secondary">
-                <button>Talk to sales</button>
-            </div>
-        </div>
-
-        <h2>Fitur Kami</h2>
-        <h4>Solusi Untuk Memenuhi Kebutuhan Pertanian Dengan One Stop Solution</h4>
-
-        <div class="card">
-            <div class="card-1">
-                <img src="storefront.png"/>
-                <h3>Toko Kebutuhan Padi</h3>
-                <p>E-commerce produk pupuk dan antihama</p>
-            </div>
-            <div class="card-2">
-                <img src="import_contacts.png"/>
-                <h3>Edukasi Petani</h3>
-                <p>Artikel dan berita seputar pertanian padi</p>
-            </div>
-            <div class="card-3">
-                <img src="groups.png"/>
-                <h3>Komunitas</h3>
-                <p>Berbagi pengalaman dan saling berkomunikasi</p>
-            </div>
-            <div class="card-4">
-                <img src="forum.png"/>
-                <h3>Tanya Ahli</h3>
-                <p>Berkomunikasi dengan ahli di bidang pertanian</p>
-            </div>
-        </div>
-
-         <div class="home-3">
-            <img src="ibukpetani.png"/>
-            <h3>Visi Kami</h3>
-            <p>Membangun solusi digital terdepan untuk memenuhi kebutuhan petani padi di Solok dengan menyediakan 
-                produk berkualitas, layanan edukasi, dan dukungan berbasis teknologi yang mendorong keberlanjutan dan peningkatan hasil panen.</p>
-            <div class="nomor">
-                <h2>No.1</h2>
-                <h2>No.2</h2>
-            </div>
-            <div class="isi">
-                <p>Platform One Stop Solution </p>
-                <p style="margin-left: 1113px; margin-top: -63px;">Menjadi Penyedia Kebutuhan Pertanian dengan harga termurah</p>
-            </div>
-         </div>
-
-         <div class="home-4">
-            <h2>Artikel Terbaru</h2>
-            <h4>Cari Informasi dan Kebutuhan Anda</h4>
-
-            <div class="cardd">
-                <div class="cardd-home-4-top">
-                    <div class="cardd-1">
-                        <img src="padi1.png"/>
-                        <h3>Strategi Ampuh Basmi Hama Walang Sangit pada</h3>
-                        <p>Fase Kritis: Hama walang sangit biasanya menyerang tanaman padi pada fase. </p>
-                        <a href="#">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                    <div class="cardd-2">
-                        <img src="padi2.png"/>
-                        <h3>Inovasi Terbaru Pupuk Padi untuk Tingkatkan Hasil ...</h3>
-                        <p>Di tengah meningkatnya permintaan akan beras, kualitas dan kuantitas prod.</p>
-                        <a href="#">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                    <div class="cardd-3">
-                        <img src="beras.png"/>
-                        <h3>Menguak Tantangan Petani Padi di Solok: Harga Pupuk..</h3>
-                        <p>Di dataran tinggi Solok, Sumatra Barat, beras bukan hanya sekadar bahan ...</p>
-                        <a href="#">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="cardd-home-4-bot">
-                    <div class="cardd-1">
-                        <img src="2 orang petani.png">
-                        <h3 style="width: 350px;">Strategi Pengendalian Hama Terbaru untuk Lindungi ...</h3>
-                        <p>Fase Kritis: Hama walang sangit biasanya menyerang tanaman padi pada fase. </p>
-                        <a href="#">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                    <div class="cardd-2">
-                        <img src="bps.png">
-                        <h3>BPS catat harga gabah dan beras naik pada Juni 2024</h3>
-                        <p>Di tengah meningkatnya permintaan akan beras, kualitas dan kuantitas prod.</p>
-                        <a href="#">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                    <div class="cardd-3">
-                        <img src="beras2.png">
-                        <h3 style="width: 340px;">Sumber Artikel berjudul Beras Solok: Harta Karun ...</h3>
-                        <p>Di dataran tinggi Solok, Sumatra Barat, beras bukan hanya sekadar bahan ...</p>
-                        <a href="#">Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-            </div>
-         </div>
-         <!--end home 4-->
-        
-        <!--home 5-->
-         <div class="home-5">
-             <img src="tanah.png">
-             <h2>Cari Kebutuhan Pertanian Anda</h2>
-             <p>Temukan produk pupuk dan antihama terjangkau dan terpercaya</p>
-             <button>Klik Disini</button>
-         </div>
-        <!--end home 5-->
-
-        <!--home 6-->
-        <div class="home-6">
-            <h2>Contact Us</h2>
-            <h4>contact@awashama.com</h4>
-            <h4>(123) 456 - 789</h4>
-            <div>
-                <h4>Cirebon,  Jakarta, 25814</h4>
-            </div>
-            <div class="icon">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-linkedin-in"></i>
-            </div>
-        </div>
         </>
     )
 }
+
+function ArtikelCard(props){
+    return(
+        <>
+        <a href="/artikel">
+        <div className="card shadow-md p-6 rounded-lg hover:scale-105 duration-200 hover:cursor-pointer">
+          <img src={props.src} alt="..." className="w-full h-auto mb-4 rounded-lg" />
+          <h3 className="text-lg font-semibold mb-2 text-awashama-darkgray">{props.title}</h3>
+          <p className="text-awashama-gray mb-4">{props.text}</p>
+          <p className='font-semibold mt-2 inline-block'>Selengkapnya</p>
+        </div>
+        </a>
+        </>
+    )
+}
+
+export default function Home() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+    return (
+      <>
+      <section className="hero bg-cover py-48 ps-20" style={{ backgroundImage:`url(./src/assets/home/gambarhome.jpg)` }}>
+        <div className="animate-fade-right animate-once">
+          <h1 className="text-3xl font-semibold text-awashama-white">Menjaga Hasil,
+          Kebutuhan Stabil</h1>
+          <p className="mt-2 text-lg w-1/2 text-awashama-white font-light mb-4">
+          Mitra digital utama bagi petani padi di Solok dengan menyediakan produk pupuk dan anti hama berkualitas, layanan edukasi, serta konsultasi langsung dengan ahli pertanian.
+          </p>
+          <div className="bg-awashama-yellow rounded-full w-1/6 hover:scale-105 duration-200">
+            <a href="/toko" className="block w-full h-full text-center p-5">Cari Kebutuhan</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="fitur my-32">
+          <h2 className="text-4xl font-bold text-awashama-darkgray text-center">Fitur Kami</h2>
+          <h4 className="text-lg text-gray-600 text-awashama-gray text-center font-semibold">Solusi Untuk Memenuhi Kebutuhan Pertanian Dengan One Stop Solution</h4>
+  
+          <div className="grid grid-cols-3 gap-6 mt-10 mx-32 rounded-lg" data-aos="fade-up">
+            <FiturCard src="./src/assets/home/storefront.png" title="Toko Kebutuhan Padi" text="E-commerce produk pupuk dan antihama."/>
+            <FiturCard src="./src/assets/home/buku.png" title="Edukasi Petani" text="Artikel dan berita seputar pertanian padi."/>
+            <FiturCard src="./src/assets/home/groups.png" title="Komunitas" text="Berbagi pengalaman dan saling berkomunikasi."/>
+          </div>
+      </section>
+        
+  
+      <section className="visi flex items-center my-32 bg-awashama-darkgreen">
+        <img src="./src/assets/home/ibukpetani.png" className="bg-cover mr-8" width={500} height={50} alt="Visi Kami" />
+        <div className="content mx-10">
+          <h3 className="text-4xl mb-2 font-bold text-awashama-white">Visi Kami</h3>
+          <p className="text-lg text-awashama-white font-light">
+            Membangun solusi digital terdepan untuk memenuhi kebutuhan petani padi di Solok dengan menyediakan produk berkualitas,
+            layanan edukasi, dan dukungan berbasis teknologi yang mendorong keberlanjutan dan peningkatan hasil panen.
+          </p>
+          <div className="grid grid-cols-2 mt-6 justify-center me-40">
+            <h2 className="text-4xl font-semibold text-awashama-white">No.1</h2>
+            <h2 className="text-4xl font-semibold text-awashama-white">No.2</h2>
+            <p className="text-lg text-awashama-white">Platform One Stop Solution</p>
+            <p className="text-lg text-awashama-white">Menjadi Penyedia Kebutuhan Pertanian dengan harga termurah</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="artikel my-32 mx-32">
+        <h2 className="text-4xl font-bold text-awashama-darkgray text-center">Artikel terbaru</h2>
+        <h4 className="text-lg text-gray-600 text-awashama-gray text-center font-semibold">Cari informasi dan kebutuhan anda.</h4>
+
+        <div className="grid grid-cols-3 gap-6 mt-10" data-aos="fade-up">
+          <ArtikelCard src="./src/assets/home/padi.jpg" title ="Strategi Ampuh Basmi Hama Walang Sangit pada.." text="Fase Kritis: Hama walang sangit biasanya menyerang tanaman padi pada fase.." />
+          <ArtikelCard src="./src/assets/home/hidroponik.png" title ="Inovasi Terbaru Pupuk Padi untuk Tingkatkan Hasil .." text="Di tengah meningkatnya permintaan akan beras, kualitas dan kuantitas prod.." />
+          <ArtikelCard src="./src/assets/home/beras.png" title="Menguak Tantangan Petani Padi di Solok: Harga Pupuk.." text="Di dataran tinggi Solok, Sumatra Barat, beras bukan hanya sekadar bahan ..." />
+
+          <ArtikelCard src="./src/assets/home/duapetani.png" title ="Strategi Pengendalian Hama Terbaru untuk Lindungi ..." text="Bagi para petani padi, musim hujan sering kali menjadi musim yang penuh ..." />
+          <ArtikelCard src="./src/assets/home/bps.png" title ="BPS catat harga gabah dan beras naik pada Juni 2024" text="Jakarta (ANTARA) - Badan Pusat Statistik (BPS) melaporkan bahwa rata-rata harga " />
+          <ArtikelCard src="./src/assets/home/petani.png" title ="Sumber Artikel berjudul Beras Solok: Harta Karun ..." text="Sumber Artikel berjudul 'Beras Solok: Harta Karun Kuliner Sumatera Barat ..." />
+        </div>
+        </section>
+
+        <section className="kebutuhan flex items-center my-32 bg-awashama-darkgreen">
+          <img src="./src/assets/home/tanah.png" className="bg-cover mr-8" width={500} height={50} alt="..." />
+          <div className="content mx-10">
+            <h3 className="text-4xl mb-2 font-bold text-awashama-white">Cari kebutuhan</h3>
+            <h3 className="text-4xl mb-2 font-bold text-awashama-white">Pertanian anda.</h3>
+            <p className="text-lg text-awashama-white font-light">
+              Temukan produk pupuk dan antihama terjangkau dan terpercaya
+            </p>
+            <div className="bg-awashama-yellow rounded-full w-1/2 mt-5 hover:scale-105 hover:cursor-pointer duration-200">
+              <a href="/toko" className="block w-full h-full ps-8 py-5 font-semibold text-xl">Temukan disini</a>
+            </div>
+          </div>
+        </section>
+  
+        <section className="contact my-32">
+          <div className="home-6 mt-10 text-center">
+            <h2 className="text-4xl font-bold text-awashama-darkgray text-center">Contact us</h2>
+            <h4 className="text-lg text-gray-600 text-awashama-gray text-center font-semibold">contact@awashama.com</h4>
+            <h4 className="text-lg text-gray-600 text-awashama-gray text-center font-semibold">(123) 456 - 789</h4>
+            <h4 className="text-lg text-gray-600 text-awashama-gray text-center font-semibold mt-5">Cirebon, Jakarta. 25814</h4>
+            </div>
+            <div className="mt-6 flex gap-7 justify-center mx-32">
+              <div className="box rounded-lg p-7 bg-awashama-lightgray"></div>
+              <div className="box rounded-lg p-7 bg-awashama-lightgray"></div>
+              <div className="box rounded-lg p-7 bg-awashama-lightgray"></div>
+              <div className="box rounded-lg p-7 bg-awashama-lightgray"></div>
+          </div>
+        </section>
+      </>
+    );
+  }
+  

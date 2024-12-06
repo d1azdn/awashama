@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,6 +9,8 @@ import Layout from './pages/layout.jsx'
 import ShopLayout from './pages/ShopLayout.jsx'
 import Shop from './pages/shop.jsx';
 import Product from './pages/product.jsx';
+import Home from './pages/home.jsx';
+import About from './pages/about.jsx';
 
 function App() {
 
@@ -19,8 +19,9 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="komunitas" element={<Community />} />
+          <Route index element={<Home />} />
           <Route path="artikel" element={<Article />} />
+          <Route path="tentang" element={<About />} />
         </Route>
 
         <Route path="/toko" element={<ShopLayout />}>
