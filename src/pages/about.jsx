@@ -1,12 +1,19 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 export default function About(){
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return(
         <>
         <section className="about bg-awashama-toolightgreen p-24 flex flex-row justify-between">
-            <div className="tentang-kami w-1/2">
+            <div className="tentang-kami w-1/2" data-aos="fade-right">
                 <h1 className="text-2xl font-semibold">Tentang Kami</h1>
                 <p className="text-4xl font-semibold">Menjaga hasil, kebutuhan stabil</p>
             </div>
-            <div className="visi-misi w-1/2">
+            <div className="visi-misi w-1/2" data-aos="fade-right">
                 <div className="visi mb-8">
                     <h1 className="text-2xl font-semibold">Visi</h1>
                     <p className="font-semibold">Membangun solusi digital terdepan untuk memenuhi kebutuhan petani padi di Solok dengan menyediakan produk berkualitas, layanan edukasi, dan dukungan berbasis teknologi yang mendorong keberlanjutan dan peningkatan hasil panen.</p>
@@ -22,7 +29,7 @@ export default function About(){
                 </div>
             </div>
         </section>
-        <section className="image-big bg-cover flex" style={{backgroundImage : `url('./src/assets/gambarhome.jpg')`}}>
+        <section className="image-big bg-cover flex" style={{backgroundImage : `url('./src/assets/home/gambarhome.jpg')`}}>
             <h1 className="text-4xl font-semibold text-center w-full my-48 text-awashama-white">Untuk kesejahteraan petani.</h1>
         </section>
         </>

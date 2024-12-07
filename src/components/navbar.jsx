@@ -29,7 +29,7 @@ export default function Navbar(){
                 <ListNavbar text="Artikel" href="/artikel"/>
                 <ListNavbar text="Toko" href="/toko"/>
                 
-                <a href="/login" className="bg-awashama-yellow py-2 px-5 rounded-xl font-semibold"><p>Login</p></a>
+                <a href="/login" className="bg-awashama-yellow py-2 px-5 rounded-xl font-semibold hover:scale-105 duration-200"><p>Login</p></a>
             </ul>
         </nav>
         </>

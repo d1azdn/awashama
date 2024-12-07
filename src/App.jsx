@@ -11,6 +11,8 @@ import Shop from './pages/shop.jsx';
 import Product from './pages/product.jsx';
 import Home from './pages/home.jsx';
 import About from './pages/about.jsx';
+import Login from './pages/login.jsx';
+import Register from './pages/register.jsx';
 
 function App() {
 
@@ -31,6 +33,10 @@ function App() {
         <Route path="/produk" element={<ShopLayout />}>
           <Route index element={<Product />} />
         </Route>
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        
       </Routes>
     </BrowserRouter>
     </>
