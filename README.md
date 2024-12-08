@@ -147,3 +147,11 @@ Berikut adalah format data PEMBAYARAN yang digunakan
   ○ **Tidak Ada Pembaruan Data**:
   
         ■ Status: 404 Not Found
+        ■ Pesan : "Data Tidak Ditemukan"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Berhasil Diperbarui"
+
+        
