@@ -32,4 +32,9 @@ Berikut adalah format data USER/ADMIN yang digunakan
 
 Berikut adalah format data ARTIKEL yang digunakan
 
-
+| Field       | Tipe                 | Keterangan |
+|-------------|----------------------|------------|
+| id          | int                  |            |
+| Judul       | Varchar (255)        |            |
+| Deskripsi   | Varchar (255)        |            |
+| Kategori    | Varchar (255)        |            |
