@@ -38,3 +38,5 @@ Berikut adalah format data ARTIKEL yang digunakan
 | Judul       | Varchar (255)        |            |
 | Deskripsi   | Varchar (255)        |            |
 | Kategori    | Varchar (255)        |            |
+
+Berikut adalah format data PRODUK yang digunakan
