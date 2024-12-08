@@ -1,5 +1,5 @@
-# awashama
-awashama website
+# AwasHama
+AwasHama Website
 
 # Applikasi Backend AwasHama
 
