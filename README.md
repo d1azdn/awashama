@@ -101,3 +101,49 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 | nama_pembayaran  | Varchar (255)        |            |
 
 # Ketentuan API
+
+# 1. CREATE (Menambahkan User / Admin Baru)
+* **Endpoint**: /post/create
+* **Method**: POST
+* **Body Request**:
+  ```bash
+  {
+  "username": "billy",
+  "password": "billy",
+  "role": "user"
+  }
+  ```
+* **Response**:  
+  ○ **Sukses**:
+     ```bash
+     User berhasil ditambahkan dengan ID: 23
+     ```
+  ○ **Gagal**:
+  
+    **Tidak Ada Role**:
+
+        ■ Error inserting data
+
+   **Salah Input**:
+
+       ■ Username atau password salah
+
+# 2. READ (Melihat Semua Data)
+* **Endpoint**: /post/all
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Tidak Ada Data
+   ○ **Ada Data**:
+
+# 3. UPDATE (Melakukan Pembaruan Data)
+* **Endpoint**: /post/{id}/..../
+* **Method**: PUT
+* **Response**:
+
+  ○ **Tidak Ada Data**:
+  
+        ■ Status: 404 Not Found
