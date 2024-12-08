@@ -84,7 +84,7 @@ Berikut adalah format data CHECKOUT yang digunakan
 | metode_pembayaran | Varchar (255)                           |            |
 | promo             | Varchar (255)                           |            |
 | note_pelanggan    | text                                    |            |
-| status            | enum('dikemas','dikirinm','berhasil')   |            |
+| status            | enum('dikemas','dikirim','berhasil')   |            |
 
 Berikut adalah format data PENGIRIMAN yang digunakan
 
