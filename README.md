@@ -21,3 +21,13 @@ npm install passport-local
 ```
 
 # Format Data
+Berikut adalah format data USER/ADMIN yang digunakan
+
+| Field       | Tipe                 | Keterangan |
+|-------------|----------------------|------------|
+| id          | int                  |            |
+| Username    | Varchar (45)         |            |
+| Password    | Varchar (255)        |            |
+| Role        | Enum('admin','user') |            |
+
+
