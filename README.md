@@ -99,3 +99,5 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 |------------------|----------------------|------------|
 | id               | int                  |            |
 | nama_pembayaran  | Varchar (255)        |            |
+
+# Ketentuan API
