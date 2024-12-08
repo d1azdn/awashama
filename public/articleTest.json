@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "https://example.com/images/article1.jpg",
+    "judul": "Meningkatkan Kualitas Pendidikan di Era Digital",
+    "tanggal": "2024-12-06",
+    "sumberData": "Kementerian Pendidikan",
+    "deskripsi": "Artikel ini membahas langkah-langkah inovatif untuk meningkatkan kualitas pendidikan di era digital, termasuk penggunaan teknologi dalam pembelajaran."
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://example.com/images/article2.jpg",
+    "judul": "Dampak Teknologi AI di Dunia Kerja",
+    "tanggal": "2024-11-30",
+    "sumberData": "Majalah Teknologi",
+    "deskripsi": "Laporan tentang pengaruh teknologi AI terhadap dunia kerja, termasuk peluang dan tantangan yang dihadapi oleh para pekerja."
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://example.com/images/article3.jpg",
+    "judul": "Strategi Bisnis di Tengah Resesi Ekonomi",
+    "tanggal": "2024-11-20",
+    "sumberData": "Ekonomi Dunia",
+    "deskripsi": "Panduan bagi para pengusaha untuk mengelola bisnis mereka di tengah kondisi ekonomi yang sulit."
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://example.com/images/article4.jpg",
+    "judul": "Konservasi Lingkungan: Menghadapi Perubahan Iklim",
+    "tanggal": "2024-10-15",
+    "sumberData": "Lembaga Lingkungan Hidup",
+    "deskripsi": "Artikel ini menyoroti upaya global untuk mengurangi dampak perubahan iklim melalui konservasi lingkungan."
+  }
+]

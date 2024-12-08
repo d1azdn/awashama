@@ -19,7 +19,9 @@ export default function Navbar(){
         <nav className="flex justify-between py-5 px-16 items-center bg-awashama-lightgreen">
             <ul>
                 <li>
+                    <a href="/">
                     <img src="./src/assets/logo-white.png" alt="..." width={150}/>
+                    </a>
                 </li>
                 
             </ul>

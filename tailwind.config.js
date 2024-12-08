@@ -17,7 +17,8 @@ export default {
         darkgray : '#334155',
         gray: '#475569',
         lightgray: '#94a3b8',
-        white : '#f1f5f9',
+        toolightgray : '#f1f5f9',
+        white : '#FFFFFF',
       }
     },
     extend: {

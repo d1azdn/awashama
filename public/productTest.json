@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "imageUrl": "https://example.com/images/product1.jpg",
+      "namaproduk": "Tas Selempang",
+      "kategori": "Fashion",
+      "harga": 250000,
+      "deskripsi": "Tas selempang gaya casual dengan bahan kulit premium.",
+      "stok": 10,
+      "berat": 500
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://example.com/images/product2.jpg",
+      "namaproduk": "Sepatu Sneakers",
+      "kategori": "Olahraga",
+      "harga": 750000,
+      "deskripsi": "Sepatu sneakers nyaman dengan desain modern.",
+      "stok": 15,
+      "berat": 1200
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://example.com/images/product3.jpg",
+      "namaproduk": "Kursi Gaming",
+      "kategori": "Perabot",
+      "harga": 1250000,
+      "deskripsi": "Kursi gaming ergonomis dengan bantalan empuk.",
+      "stok": 5,
+      "berat": 10000
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://example.com/images/product4.jpg",
+      "namaproduk": "Handphone Android",
+      "kategori": "Elektronik",
+      "harga": 3500000,
+      "deskripsi": "Smartphone Android dengan performa tinggi dan kamera canggih.",
+      "stok": 20,
+      "berat": 300
+    }
+  ]
+  
