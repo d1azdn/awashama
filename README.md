@@ -158,3 +158,11 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 
         ■ Status: 404 Not Found
         ■ Pesan : "Data tidak ditemukan"
+
+# 4. DELETE (Menghapus Data Tertentu)
+* **Endpoint**: /post/{id}/..../
+* **Method**: DELETE
+
+  
+
+        
