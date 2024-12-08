@@ -40,3 +40,62 @@ Berikut adalah format data ARTIKEL yang digunakan
 | Kategori    | Varchar (255)        |            |
 
 Berikut adalah format data PRODUK yang digunakan
+
+| Field       | Tipe                 | Keterangan |
+|-------------|----------------------|------------|
+| id          | int                  |            |
+| nama_produk | Varchar (45)         |            |
+| harga       | int                  |            |
+| Kategori    | int unsigned         |            |
+
+Berikut adalah format data PROMO yang digunakan
+
+| Field           | Tipe                    | Keterangan |
+|-----------------|-------------------------|------------|
+| id              | int                     |            |
+| nama_promo      | Varchar (45)            |            |
+| diskon          | int                     |            |
+| Kategori_diskon | enum('persen','harga')  |            |
+
+Berikut adalah format data KERANJANG yang digunakan
+
+| Field             | Tipe                 | Keterangan |
+|-------------------|----------------------|------------|
+| id                | int                  |            |
+| id_user           | Varchar (255)        |            |
+| id_produk         | Varchar (255)        |            |
+| jumlah_produk     | int                  |            |
+| jenis_pengiriman  | Varchar (255)        |            |
+| alamat            | text                 |            |
+| metode_pembayaran | Varchar (255)        |            |
+| promo             | Varchar (255)        |            |
+| note_pelanggan    | text                 |            |
+
+Berikut adalah format data CHECKOUT yang digunakan
+
+| Field             | Tipe                                    | Keterangan |
+|-------------------|-----------------------------------------|------------|
+| id                | int                                     |            |
+| id_user           | Varchar (255)                           |            |
+| id_produk         | Varchar (255)                           |            |
+| jumlah_produk     | int                                     |            |
+| jenis_pengiriman  | Varchar (255)                           |            |
+| alamat            | text                                    |            |
+| metode_pembayaran | Varchar (255)                           |            |
+| promo             | Varchar (255)                           |            |
+| note_pelanggan    | text                                    |            |
+| status            | enum('dikemas','dikirinm','berhasil')   |            |
+
+Berikut adalah format data PENGIRIMAN yang digunakan
+
+| Field            | Tipe                 | Keterangan |
+|------------------|----------------------|------------|
+| id               | int                  |            |
+| jenis_pengiriman | Varchar (45)         |            |
+
+Berikut adalah format data PEMBAYARAN yang digunakan
+
+| Field            | Tipe                 | Keterangan |
+|------------------|----------------------|------------|
+| id               | int                  |            |
+| nama_pembayaran  | Varchar (255)        |            |
