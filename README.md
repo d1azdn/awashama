@@ -144,6 +144,6 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 * **Method**: PUT
 * **Response**:
 
-  ○ **Tidak Ada Data**:
+  ○ **Tidak Ada Pembaruan Data**:
   
         ■ Status: 404 Not Found
