@@ -30,4 +30,6 @@ Berikut adalah format data USER/ADMIN yang digunakan
 | Password    | Varchar (255)        |            |
 | Role        | Enum('admin','user') |            |
 
+Berikut adalah format data ARTIKEL yang digunakan
+
 
