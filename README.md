@@ -20,6 +20,11 @@ npm install passport
 npm install passport-local
 ```
 
+Untuk menjalankan server yang diperlukan:
+```bash
+node server.js
+```
+
 # Format Data
 Berikut adalah format data USER/ADMIN yang digunakan
 
