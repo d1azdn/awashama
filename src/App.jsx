@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Community from './pages/community.jsx'
 import Article from './pages/article.jsx'
+import ArticleInfo from './pages/articleInfo.jsx'
 import Layout from './pages/layout.jsx'
 import ShopLayout from './pages/ShopLayout.jsx'
 import Shop from './pages/shop.jsx';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="artikel" element={<Article />} />
+          <Route path="artikel/:id" element={<ArticleInfo />} />
           <Route path="tentang" element={<About />} />
         </Route>
 
@@ -30,7 +32,7 @@ function App() {
           <Route index element={<Shop />} />
         </Route>
 
-        <Route path="/produk" element={<ShopLayout />}>
+        <Route path="/produk/:id" element={<ShopLayout />}>
           <Route index element={<Product />} />
         </Route>
 

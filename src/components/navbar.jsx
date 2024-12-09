@@ -20,7 +20,7 @@ export default function Navbar(){
             <ul>
                 <li>
                     <a href="/">
-                    <img src="./src/assets/logo-white.png" alt="..." width={150}/>
+                    <img src="/src/assets/logo-white.png" alt="..." width={150}/>
                     </a>
                 </li>
                 

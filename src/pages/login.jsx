@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom"
+
 export default function Login(){
+    const navigate = useNavigate();
     return(
         <>
         <section className="the-card p-16 flex justify-center h-screen bg-gradient-to-tl from-awashama-darkgreen from-50% to-awashama-yellow">
             <div className="contain flex flex-col w-1/2 animate-fade-up">
                 <div className="bg-awashama-yellow rounded-full w-32 hover:scale-105 duration-200 mb-2">
-                    <a href="/" className="block w-full h-full text-center p-3">Kembali</a>
+                    <p className="block w-full h-full text-center p-3 cursor-pointer" onClick={()=>{navigate(-1)}}>Kembali</p>
                 </div>
                 <div className="form-place bg-awashama-lightgreen p-10 rounded-lg shadow-xl">
                     <div className="top flex flex-col items-center mb-4">
@@ -14,7 +17,7 @@ export default function Login(){
                 
                     <h1 className="font-semibold mb-2 text-xl">Masuk</h1>
                     <div className="splitter border border-solid w-full"></div>
-                    <form action="POST" id="myForm" className="flex flex-col mt-4">
+                    <form method="POST" action="" id="myForm" className="flex flex-col mt-4">
                         
                         <label htmlFor="email" className="mb-2 font-semibold">Email</label>
                         <input type="email" name="email" id="email" className="p-2 bg-awashama-black text-awashama-white" placeholder="awashama@example.com" required/>

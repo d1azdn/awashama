@@ -19,6 +19,7 @@ export default {
         lightgray: '#94a3b8',
         toolightgray : '#f1f5f9',
         white : '#FFFFFF',
+        red : '#ef4444',
       }
     },
     extend: {

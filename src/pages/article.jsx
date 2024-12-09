@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 function ArtikelCardTop(props){
     return(
         <>
-        <a href="#">
+        <a href={`/artikel/${props.id}`}>
             <div className="card px-5 align-text-bottom rounded-lg flex flex-col justify-end h-full bg-cover border-solid border-awashama-white border-2 hover:scale-105 duration-200" style={{ backgroundImage : `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${props.src})` }}>
                 <h1 className="text-awashama-white font-semibold text-2xl mb-5">{props.title}</h1>
             </div>
@@ -49,12 +49,12 @@ export default function Artikel(){
             <div className="cardList grid grid-cols-3 gap-2 h-96">
                 <div className="big">
                 {sortedArticles.slice(0,1).map((article) => (
-                    <ArtikelCardTop src={article.imageUrl} title={article.judul}/> 
+                    <ArtikelCardTop src={article.imageUrl} id={article.id} title={article.judul}/> 
                 ))}
                 </div>
                 <div className="small grid grid-cols-2 gap-2 col-span-2">
                 {sortedArticles.slice(1,4).map((article) => (
-                    <ArtikelCardTop src={article.imageUrl} title={article.judul}/> 
+                    <ArtikelCardTop src={article.imageUrl} id={article.id} title={article.judul}/> 
                 ))}
                 </div>
             </div>
@@ -65,7 +65,7 @@ export default function Artikel(){
 
             <div className="grid grid-cols-3 gap-6 mt-5" data-aos="fade-up">
             {articles.map((article) => (
-            <ArtikelCard key={article.id} id={article.id} src={article.imageUrl} title ={article.judul} text={article.deskripsi}/>
+            <ArtikelCard key={article.id} id={article.id} src={article.imageUrl} title ={article.judul} text={article.deskripsi?.substring(0,100)}/>
             ))}
             </div>
         </section>
