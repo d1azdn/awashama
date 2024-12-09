@@ -528,7 +528,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
    ○ **Ada Data**:
 
         ■ Ada Data:
-      {
+      [
         {
         "id": 1,
         "nama_produk": "pupuk",
@@ -541,10 +541,11 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         "harga": 20000,
         "stok": 100
         }
-      }
+      ]
 
 **Melihat Data Produk By ID**
 * **Endpoint**: /get/produk/1 ( USER )
+* **Endpoint**: /get/dashboard/prduk/1 ( ADMIN )
 * **Method**: GET
 * **Response**:
   
@@ -576,7 +577,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
    ○ **Ada Data**:
 
         ■ Ada Data:
-      {
+      [
         {
         "id": 1,
         "judul": "Pilihan berkelanjutan yang kian diminati konsumen",
@@ -589,7 +590,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         "deskripsi": "kiwkiw",
         "kategori": "berita"
         }
-      }
+      ]
 
 **Melihat Data Artikel By ID**
 * **Endpoint**: /get/artikel/1 ( USER )
@@ -623,7 +624,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
    ○ **Ada Data**:
 
         ■ Ada Data:
-      {
+      [
         {
         "id": 1,
         "id_user": "1",
@@ -648,7 +649,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         "note_pelanggan": "kiwkiw",
         "status": "dikirim"
         }
-      }
+      ]
 
 **Melihat Data Checkout By ID**
 * **Endpoint**: /get/checkout/1 ( USER )
@@ -689,7 +690,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
    ○ **Ada Data**:
 
         ■ Ada Data:
-      {
+      [
         {
         "id": 1,
         "nama_promo": "uhuy",
@@ -702,7 +703,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         "diskon": 50000,
         "kategori_diskon": "persen"
         },
-      }
+      ]
 
 **Melihat Data Promo By Id**
 * **Endpoint**: /get/promo/1 ( USER )
@@ -722,6 +723,147 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         "nama_promo": "uhuy",
         "diskon": 50,
         "kategori_diskon": "persen"
+        }
+
+**Melihat Data Keranjang**
+* **Endpoint**: /get/keranjang/ ( USER )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Keranjang
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+      [
+        {
+        "id": 1,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+        },
+        {
+        "id": 4,
+        "id_user": "12",
+        "id_produk": "2",
+        "jumlah_produk": 5,
+        "jenis_pengiriman": "kirim",
+        "alamat": "palembang",
+        "metode_pembayaran": "tranfer",
+        "promo": "11.11",
+        "note_pelanggan": "kiwkiw"
+        },
+      ]
+
+**Melihat Data Keranjang By id**
+* **Endpoint**: /get/keranjang/1 ( USER )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Keranjang
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+        {
+        "id": 1,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+        }
+
+**Melihat Data Pembayaran**
+* **Endpoint**: /get/dashboard/pembayaran/ ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Pembayaran
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+       [
+        {
+        "id": 1,
+        "nama_pembayaran": "bca"
+        },
+        {
+        "id": 3,
+        "nama_pembayaran": "bri"
+        },
+       ]
+
+**Melihat Data Pembayaran**
+* **Endpoint**: /get/dashboard/pembayaran/1 ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Pembayaran
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+        {
+        "id": 1,
+        "nama_pembayaran": "bca"
+        }
+
+**Melihat Data Pengiriman**
+* **Endpoint**: /get/dashboard/pengiriman/ ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Pngiriman
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+       [
+        {
+        "id": 1,
+        "jenis_pengiriman": "jnt"
+        },
+        {
+        "id": 3,
+        "jenis_pengiriman": "jnt"
+        },
+       ]
+
+**Melihat Data Pengiriman By ID**
+* **Endpoint**: /get/dashboard/pengiriman/1 ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Pngiriman
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+        {
+        "id": 1,
+        "jenis_pengiriman": "jnt"
         }
 
 # 3. UPDATE (Melakukan Pembaruan Data)
