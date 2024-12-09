@@ -103,7 +103,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 # Ketentuan API
 
 # 1. CREATE (Menambahkan User / Admin Baru)
-* **Endpoint**: /post/create
+* **Endpoint**: /post/register
 * **Method**: POST
 * **Body Request**:
   ```bash
@@ -129,7 +129,8 @@ Berikut adalah format data PEMBAYARAN yang digunakan
        ■ Username atau password salah
 
 # 2. READ (Melihat Semua Data)
-* **Endpoint**: /post/all
+* **Endpoint**: /post/all ( user)
+* **Endpoint**: /post/dashboard/... (admin) 
 * **Method**: GET
 * **Response**:
   
@@ -139,8 +140,18 @@ Berikut adalah format data PEMBAYARAN yang digunakan
          ■ Tidak Ada Data
    ○ **Ada Data**:
 
+        ■ Ada Data:
+        ```bash
+        {
+        "id": 27,
+        "username": "tobi",
+        "password": "$2b$10$s5IL7IvffK5Utz9ak1P7eOMAHhYnbH6rcRdef1QoGw9k2HfMkWJr.",
+        "role": "admin"
+        }
+        ```
+
 # 3. UPDATE (Melakukan Pembaruan Data)
-* **Endpoint**: /post/{id}/..../
+* **Endpoint**: /dashboard/.../{id}/ (admin)
 * **Method**: PUT
 * **Response**:
 
@@ -160,7 +171,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Pesan : "Data tidak ditemukan"
 
 # 4. DELETE (Menghapus Data Tertentu)
-* **Endpoint**: /post/{id}/..../
+* **Endpoint**: /dashbord/{id}/..../ (admin)
 * **Method**: DELETE
 * **Response**:
 
