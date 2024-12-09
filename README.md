@@ -376,6 +376,102 @@ Berikut adalah format data PEMBAYARAN yang digunakan
        ■ Status : 500  Eror
        ■ Gagal Menambahkan Data
 
+**Menambahkan Data Keranjang (HANYA BISA USER)**
+* **Endpoint**: /post/keranjang ( USER )
+* **Method**: POST
+* **Body Request**:
+  ```bash
+       {
+        "id": 1,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+      }
+  ```
+* **Response**:  
+  ○ **Sukses**:
+     ```bash
+     {
+    "message": "Keranjang berhasil ditambahkan",
+    "id": 6
+     }
+     ```
+  ○ **Gagal**:
+  
+    **Salah Input**:
+
+        ■ Status : 400  Eror
+        ■ Pesan : Data Harus Diisi
+
+   **Format Input Salah**:
+
+       ■ Status : 500  Eror
+       ■ Gagal Menambahkan Data Keranjang
+
+**Menambahkan Data Pembayaran (HANYA BISA ADMIN)**
+* **Endpoint**: /post/dashboard/pembayaran ( ADMIN )
+* **Method**: POST
+* **Body Request**:
+  ```bash
+       {
+        "id": 1,
+        "nama_pembayaran": "bca"
+       }
+  ```
+* **Response**:  
+  ○ **Sukses**:
+     ```bash
+     {
+    "message": "Data berhasil ditambahkan",
+    "id": 6
+     }
+     ```
+  ○ **Gagal**:
+  
+    **Salah Input**:
+
+        ■ Status : 400  Eror
+        ■ Pesan : Data Harus Diisi
+
+   **Format Input Salah**:
+
+       ■ Status : 500  Eror
+       ■ Gagal Menambahkan Data 
+
+**Menambahkan Data Pengiriman (HANYA BISA ADMIN)**
+* **Endpoint**: /post/dashboard/pengiriman ( ADMIN )
+* **Method**: POST
+* **Body Request**:
+  ```bash
+        {
+        "jenis_pengiriman": "jnt"
+        }
+  ```
+* **Response**:  
+  ○ **Sukses**:
+     ```bash
+     {
+    "message": "Pengiriman berhasil ditambahkan",
+    "id": 8
+     }
+     ```
+  ○ **Gagal**:
+  
+    **Salah Input**:
+
+        ■ Status : 400  Eror
+        ■ Pesan : Data Harus Diisi
+
+   **Format Input Salah**:
+
+       ■ Status : 500  Eror
+       ■ Gagal Menambahkan Data Pengiriman
+
 # 2. READ (Melihat Semua Data)
 * **Endpoint**: /post/all ( user)
 * **Endpoint**: /post/dashboard/... (admin) 
