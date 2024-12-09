@@ -162,6 +162,18 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 # 4. DELETE (Menghapus Data Tertentu)
 * **Endpoint**: /post/{id}/..../
 * **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Berhasil Dihapus"
+
 
   
 
