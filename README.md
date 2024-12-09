@@ -515,6 +515,215 @@ Berikut adalah format data PEMBAYARAN yang digunakan
          "role": "user"
         }
 
+**Melihat Data Produk**
+* **Endpoint**: /get/produk ( USER )
+* **Endpoint**: /get/dashboard/produk ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Produk
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+      {
+        {
+        "id": 1,
+        "nama_produk": "pupuk",
+        "harga": 55,
+        "stok": 100
+        },
+        {
+        "id": 3,
+        "nama_produk": "Beras",
+        "harga": 20000,
+        "stok": 100
+        }
+      }
+
+**Melihat Data Produk By ID**
+* **Endpoint**: /get/produk/1 ( USER )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Produk
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+
+        {
+        "id": 1,
+        "nama_produk": "pupuk",
+        "harga": 55,
+        "stok": 100
+        }
+
+**Melihat Data Artikel**
+* **Endpoint**: /get/artikel ( USER )
+* **Endpoint**: /get/dashboard/artikel ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Artikel
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+      {
+        {
+        "id": 1,
+        "judul": "Pilihan berkelanjutan yang kian diminati konsumen",
+        "deskripsi": "Permintaan produk organik terus meningkat mendorong",
+        "kategori": "berita"
+        },
+        {
+        "id": 5,
+        "judul": "uhuy",
+        "deskripsi": "kiwkiw",
+        "kategori": "berita"
+        }
+      }
+
+**Melihat Data Artikel By ID**
+* **Endpoint**: /get/artikel/1 ( USER )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Artikel
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+        {
+        "id": 1,
+        "judul": "Pilihan berkelanjutan yang kian diminati konsumen",
+        "deskripsi": "Permintaan produk organik terus meningkat mendorong",
+        "kategori": "berita"
+        }
+
+**Melihat Data Checkout**
+* **Endpoint**: /get/checkout ( USER )
+* **Endpoint**: /get/dashboard/chechkout ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Checkout
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+      {
+        {
+        "id": 1,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 50,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jalan silber",
+        "metode_pembayaran": "transfer",
+        "promo": "11.11",
+        "note_pelanggan": "dipercepat bosku",
+        "status": "dikemas"
+        },
+        {
+        "id": 2,
+        "id_user": "3",
+        "id_produk": "1",
+        "jumlah_produk": 50,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jhehehe",
+        "metode_pembayaran": "blalbal",
+        "promo": "11.11",
+        "note_pelanggan": "kiwkiw",
+        "status": "dikirim"
+        }
+      }
+
+**Melihat Data Checkout By ID**
+* **Endpoint**: /get/checkout/1 ( USER )
+* **Endpoint**: /get/dashboard/chechkout/1 ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Checkout
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+        {
+        "id": 1,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 50,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jalan silber",
+        "metode_pembayaran": "transfer",
+        "promo": "11.11",
+        "note_pelanggan": "dipercepat bosku",
+        "status": "dikemas"
+        }
+
+**Melihat Data Promo**
+* **Endpoint**: /get/promo ( USER )
+* **Endpoint**: /get/dashboard/promo ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Promo
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+      {
+        {
+        "id": 1,
+        "nama_promo": "uhuy",
+        "diskon": 50,
+        "kategori_diskon": "persen"
+        },
+        {
+        "id": 3,
+        "nama_promo": "11.11",
+        "diskon": 50000,
+        "kategori_diskon": "persen"
+        },
+      }
+
+**Melihat Data Promo By Id**
+* **Endpoint**: /get/promo/1 ( USER )
+* **Endpoint**: /get/dashboard/promo/1 ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Gagal Menampilkan Data Promo
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+        {
+        "id": 1,
+        "nama_promo": "uhuy",
+        "diskon": 50,
+        "kategori_diskon": "persen"
+        }
+
 # 3. UPDATE (Melakukan Pembaruan Data)
 * **Endpoint**: /dashboard/.../{id}/ (admin)
 * **Method**: PUT
