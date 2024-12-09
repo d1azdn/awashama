@@ -868,8 +868,16 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         }
 
 # 3. UPDATE (Melakukan Pembaruan Data)
-* **Endpoint**: /dashboard/.../{id}/ (admin)
+**Melakukan Pembaruan Data User**
+* **Endpoint**: /dashboard/user/23/ (ADMIN)
 * **Method**: PUT
+* **Body Request**:
+  ```bash
+      {
+          "username": "billy",
+          "password": "billy"
+      }
+  ```
 * **Response**:
 
   ○ **Tidak Ada Pembaruan Data**:
@@ -880,7 +888,243 @@ Berikut adalah format data PEMBAYARAN yang digunakan
   ○ **Sukses Pembaruan Data**:
 
         ■ Status: 200 OK
-        ■ Pesan : "Data Berhasil Diperbarui"
+        ■ Pesan : "Data User Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Admin**
+* **Endpoint**: /dashboard/user/27/ (ADMIN)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+      {
+          "username": "tobi",
+          "password": "tobi"
+      }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data User Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Produk**
+* **Endpoint**: PUT/dashboard/produk/3/ (ADMIN)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+       {
+        "nama_produk": "Sayur",
+        "harga": 20000,
+        "stok": 100
+       }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Produk Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Artikel**
+* **Endpoint**: PUT/dashboard/artikel/5/ (ADMIN)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+      {
+        "id": 5,
+        "judul": "Petani",
+        "deskripsi": "kiwkiw",
+        "kategori": "berita"
+        }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Artikel Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Checkout**
+* **Endpoint**:PUT/dashboard/checkout/2/ (ADMIN)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+      {
+        "id": 2,
+        "id_user": "3",
+        "id_produk": "1",
+        "jumlah_produk": 50,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jhehehe",
+        "metode_pembayaran": "bca",
+        "promo": "11.11",
+        "note_pelanggan": "kiwkiw",
+        "status": "dikirim"
+      }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Checkout Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Promo**
+* **Endpoint**:PUT/dashboard/promo/4/ (ADMIN)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+        {
+        "id": 4,
+        "nama_promo": "10.10",
+        "diskon": 80,
+        "kategori_diskon": "persen"
+        }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Promo Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Keranjang**
+* **Endpoint**:PUT/keranjang/4/ (USER)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+        {
+        "id": 4,
+        "id_user": "12",
+        "id_produk": "2",
+        "jumlah_produk": 5,
+        "jenis_pengiriman": "kirim",
+        "alamat": "palembang",
+        "metode_pembayaran": "bca",
+        "promo": "11.11",
+        "note_pelanggan": "kiwkiw"
+         }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Keranjang Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Pembayaran**
+* **Endpoint**: /dashboard/pembayaran/3/ (ADMIN)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+        {
+        "id": 3,
+        "nama_pembayaran": "mandiri"
+        }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Pembayaran Berhasil Diperbarui"
+
+  ○ **Gagal Pembaruan Data**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+**Melakukan Pembaruan Data Pengiriman**
+* **Endpoint**: /dashboard/pengiriman/4/ (ADMIN)
+* **Method**: PUT
+* **Body Request**:
+  ```bash
+        {
+        "id": 4,
+        "jenis_pengiriman": "jne"
+        }
+  ```
+* **Response**:
+
+  ○ **Tidak Ada Pembaruan Data**:
+  
+        ■ Status: 404 Not Found
+        ■ Pesan : "Error updating data"
+
+  ○ **Sukses Pembaruan Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Pengiriman Berhasil Diperbarui"
 
   ○ **Gagal Pembaruan Data**:
 
