@@ -1132,7 +1132,8 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Pesan : "Data tidak ditemukan"
 
 # 4. DELETE (Menghapus Data Tertentu)
-* **Endpoint**: /dashbord/{id}/..../ (admin)
+**Menghapus Data User**
+* **Endpoint**: /user/30 
 * **Method**: DELETE
 * **Response**:
 
@@ -1144,7 +1145,127 @@ Berikut adalah format data PEMBAYARAN yang digunakan
   ○ **Sukses Menghapus Data**:
 
         ■ Status: 200 OK
-        ■ Pesan : "Data Berhasil Dihapus"
+        ■ Pesan : "User Berhasil Dihapus"
+
+**Menghapus Data Admin**
+* **Endpoint**: /user/31
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "User Berhasil Dihapus"
+
+**Menghapus Data Produk**
+* **Endpoint**: /dashboard/produk/5 (ADMIN)
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Produk Berhasil Dihapus"
+
+**Menghapus Data Artikel**
+* **Endpoint**: /dashboard/artikel/5 (ADMIN)
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Artikel Berhasil Dihapus"
+
+**Menghapus Data Checkout**
+* **Endpoint**: /dashboard/checkout/6 (ADMIN)
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Data Checkout Berhasil Dihapus"
+
+**Menghapus Data Promo**
+* **Endpoint**: /dashboard/promo/13 (ADMIN)
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Promo Dihapus"
+
+**Menghapus Data Keranjang**
+* **Endpoint**: /keranjang/7 (USER)
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Promo Dihapus"
+
+**Menghapus Data Pembayaran**
+* **Endpoint**: /dashboard/pembayaran/6 (ADMIN)
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Pembayaran Dihapus"
+
+**Menghapus Data Pengiriman**
+* **Endpoint**: /dashboard/pengiriman/8 (ADMIN)
+* **Method**: DELETE
+* **Response**:
+
+  ○ **Data Tidak Ditemukan**:
+
+        ■ Status: 404 Not Found
+        ■ Pesan : "Data tidak ditemukan"
+
+  ○ **Sukses Menghapus Data**:
+
+        ■ Status: 200 OK
+        ■ Pesan : "Pengiriman Dihapus"
 
 
   
