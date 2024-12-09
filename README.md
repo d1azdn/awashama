@@ -102,7 +102,8 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 
 # Ketentuan API
 
-# 1. CREATE (Menambahkan User / Admin Baru, Data Produk, Data Artikel, Data Data Checkout, Data Promo, Data Keranjang, Data Pembayaran, Data Pengiriman)
+# 1. CREATE (Menambahkan User / Admin Baru, Data Produk, Data Artikel, Data Data Checkout, 
+# Data Promo, Data Keranjang, Data Pembayaran, Data Pengiriman)
 * **Endpoint**: /post/register
 * **Method**: POST
 * **Body Request**:
