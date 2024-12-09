@@ -103,7 +103,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 # Ketentuan API
 
 # 1. CREATE (Menambahkan User/Admin Baru,Produk,Artikel,Checkout,Promo,Keranjang,Pembayaran,Pengiriman)
-* **Endpoint**: /post/register
+* **Endpoint**: /post/register ( USER )
 * **Method**: POST
 * **Body Request**:
   ```bash
