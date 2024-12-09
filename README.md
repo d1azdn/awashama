@@ -495,7 +495,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         }
 
 **Melihat Data User**
-* **Endpoint**: /get/check-login ( ADMIN )
+* **Endpoint**: /get/check-login ( USER )
 * **Method**: GET
 * **Response**:
   
