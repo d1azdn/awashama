@@ -473,8 +473,8 @@ Berikut adalah format data PEMBAYARAN yang digunakan
        ■ Gagal Menambahkan Data Pengiriman
 
 # 2. READ (Melihat Semua Data)
-* **Endpoint**: /post/all ( user)
-* **Endpoint**: /post/dashboard/... (admin) 
+**Melihat Data Admin**
+* **Endpoint**: /get/check-login ( ADMIN )
 * **Method**: GET
 * **Response**:
   
@@ -487,10 +487,32 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Ada Data:
 
         {
-        "id": 27,
-        "username": "tobi",
-        "password": "$2b$10$s5IL7IvffK5Utz9ak1P7eOMAHhYnbH6rcRdef1QoGw9k2HfMkWJr.",
-        "role": "admin"
+         "loggedIn": true,
+         "user": {
+         "id": 27,
+         "username": "tobi",
+         "role": "admin"
+        }
+
+**Melihat Data User**
+* **Endpoint**: /get/check-login ( ADMIN )
+* **Method**: GET
+* **Response**:
+  
+   ○ **Tidak Ada Data**:
+  
+         ■ Status: 400 Not Found
+         ■ Tidak Ada Data
+   ○ **Ada Data**:
+
+        ■ Ada Data:
+
+        {
+         "loggedIn": true,
+         "user": {
+         "id": 23,
+         "username": "billy",
+         "role": "user"
         }
 
 # 3. UPDATE (Melakukan Pembaruan Data)
