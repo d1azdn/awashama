@@ -102,7 +102,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 
 # Ketentuan API
 
-# 1. CREATE (Menambahkan User/Admin Baru,Produk,Artikel,Checkout,Promo,Keranjang,Pembayaran,Pengiriman)
+# 1. CREATE (Menambahkan User/Admin)
 * **Endpoint**: /post/register ( USER )
 * **Method**: POST
 * **Body Request**:
@@ -111,6 +111,33 @@ Berikut adalah format data PEMBAYARAN yang digunakan
   "username": "billy",
   "password": "billy",
   "role": "user"
+  }
+  ```
+* **Response**:  
+  ○ **Sukses**:
+     ```bash
+     User berhasil ditambahkan dengan ID: 23
+     ```
+  ○ **Gagal**:
+  
+    **Tidak Ada Role**:
+
+        ■ Error inserting data
+
+   **Salah Input**:
+
+       ■ Username atau password salah
+
+**Menambahkan Admin**
+
+* **Endpoint**: /post/register ( ADMIN )
+* **Method**: POST
+* **Body Request**:
+  ```bash
+  {
+  "username": "tobi",
+  "password": "tobi",
+  "role": "admin"
   }
   ```
 * **Response**:  
@@ -141,14 +168,13 @@ Berikut adalah format data PEMBAYARAN yang digunakan
    ○ **Ada Data**:
 
         ■ Ada Data:
-        ```bash
+
         {
         "id": 27,
         "username": "tobi",
         "password": "$2b$10$s5IL7IvffK5Utz9ak1P7eOMAHhYnbH6rcRdef1QoGw9k2HfMkWJr.",
         "role": "admin"
         }
-        ```
 
 # 3. UPDATE (Melakukan Pembaruan Data)
 * **Endpoint**: /dashboard/.../{id}/ (admin)
