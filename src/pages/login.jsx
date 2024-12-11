@@ -17,13 +17,15 @@ export default function Login(){
                 
                     <h1 className="font-semibold mb-2 text-xl">Masuk</h1>
                     <div className="splitter border border-solid w-full"></div>
-                    <form method="POST" action="" id="myForm" className="flex flex-col mt-4">
+                    <form method="POST" action="/login" id="myForm" className="flex flex-col mt-4">
                         
-                        <label htmlFor="email" className="mb-2 font-semibold">Email</label>
-                        <input type="email" name="email" id="email" className="p-2 bg-awashama-black text-awashama-white" placeholder="awashama@example.com" required/>
+                        <label htmlFor="username" className="mb-2 font-semibold">Username</label>
+                        <input type="text" name="username" id="username" className="p-2 bg-awashama-black text-awashama-white" placeholder="Input your username." required/>
 
                         <label htmlFor="password" className="mb-2 mt-4 font-semibold">Password</label>
                         <input type="password" name="password" id="password" className="p-2 bg-awashama-black text-awashama-white" placeholder="******" required/>
+
+                        <input type="hidden" name="role" id="role" value="user" />
                         
                         <a href="/register" className="font-semibold mt-6 hover:text-awashama-white w-3/4 mb-4 duration-200">Belum memiliki akun? Daftar sekarang!</a>
                     </form>

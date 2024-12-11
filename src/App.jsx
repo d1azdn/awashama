@@ -14,6 +14,9 @@ import Home from './pages/home.jsx';
 import About from './pages/about.jsx';
 import Login from './pages/login.jsx';
 import Register from './pages/register.jsx';
+import Cart from './pages/cart.jsx';
+import AdminLayout from './pages/adminLayout.jsx';
+import DashboardProduct from './pages/admin/dashboardProduct.jsx';
 
 function App() {
 
@@ -32,12 +35,20 @@ function App() {
           <Route index element={<Shop />} />
         </Route>
 
+        <Route path="/keranjang" element={<ShopLayout />}>
+          <Route index element={<Cart />} />
+        </Route>
+
         <Route path="/produk/:id" element={<ShopLayout />}>
           <Route index element={<Product />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route path="/dashboard" element={<AdminLayout />}>
+          <Route path="produk" element={<DashboardProduct />} />
+        </Route>
         
       </Routes>
     </BrowserRouter>

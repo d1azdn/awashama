@@ -60,7 +60,7 @@ export default function Product(){
                     </div>
                     <div className="tambahbarang mb-2 flex flex-row gap-2">
                         <p className='font-semibold text-xl py-3 px-5 bg-awashama-lightgreen rounded-lg hover:cursor-pointer' onClick={()=>{setJumlah(jumlah-1)}}>-</p>
-                        <input type="text" name="jumlah" id="jumlah" className='bg-awashama-lightgray p-3 text-xl w-24 rounded-lg' value={jumlah} />
+                        <input type="text" name="jumlah" id="jumlah" className='bg-awashama-toolightgray p-3 text-xl w-24 rounded-lg' value={jumlah} />
                         <p className='font-semibold text-xl py-3 px-5 bg-awashama-lightgreen rounded-lg hover:cursor-pointer' onClick={()=>{setJumlah(jumlah+1)}}>+</p>
                     </div>
                     <div className="tambahkeranjang w-1/3 bg-awashama-lightgreen font-semibold rounded-lg mb-4">
@@ -70,17 +70,16 @@ export default function Product(){
             </div>
             <div className="description">
                 <div className="more-description grid grid-cols-2 gap-2">
-                    <div className="pengiriman bg-awashama-toolightgreen hover:cursor-pointer rounded-lg p-4 w-full mb-4 duration-200">
+                    <div className="pengiriman bg-awashama-toolightgreen rounded-lg p-4 w-full mb-4 duration-200">
                         <p className="mb-2">Info Pengiriman : </p>
-                        <input type="radio" id="jne" name="pengiriman" value="jne" defaultChecked/>
-                        <label htmlFor="jne"> JNE</label>
-                        <br />
-                        <input type="radio" id="sicepat" name="pengiriman" value="sicepat"/>
-                        <label htmlFor="sicepat"> SiCepat Xpress</label>
+                        <select name="pengiriman" id="pengiriman" className='py-2 px-4 bg-awashama-lightgreen rounded-xl hover:cursor-pointer'>
+                            <option value="jne">JNE</option>
+                            <option value="sicepat">SiCepat Xpress</option>
+                        </select>
                     </div>
-                    <div className="promo bg-awashama-toolightgreen hover:cursor-pointer rounded-lg p-4 w-full mb-4 duration-200">
+                    <div className="promo bg-awashama-toolightgreen rounded-lg p-4 w-full mb-4 duration-200">
                         <p className="mb-2">Promo : </p>
-                        <input type="text" id="promo" name="promo" className='ps-5 py-2 w-1/2 rounded-xl bg-awashama-lightgreen text-awashama-white font-semibold placeholder-awashama-white' placeholder='Masukkan promo disini' checked/>
+                        <input type="text" id="promo" name="promo" className='ps-5 py-3 w-1/2 rounded-xl bg-awashama-lightgreen text-awashama-white font-semibold placeholder-awashama-white' placeholder='Masukkan promo disini' checked/>
                     </div>
                 </div>
                 <div className="product-description bg-awashama-toolightgreen rounded-lg p-4 w-full mb-4">

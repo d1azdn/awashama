@@ -49,7 +49,7 @@ export default function Shop(){
 
     return(
         <>
-        <div className="beranda mx-32 mt-5 bg-awashama-toolightgray shadow-md w-48 rounded-xl hover:bg-awashama-lightgray duration-200">
+        <div className="beranda mx-32 mt-5 bg-awashama-toolightgray shadow-md w-48 rounded-xl hover:bg-awashama-lightgray duration-200 hover:cursor-pointer">
             <p className='p-3 font-semibold' onClick={()=>{navigate(-1)}}>Kembali ke beranda</p>
         </div>
 

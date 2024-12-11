@@ -34,15 +34,17 @@ export default function Register(){
                     <h1 className="font-semibold mb-2 text-xl">Daftar</h1>
                     <div className="splitter border border-solid w-full"></div>
 
-                    <form action="POST" id="myForm" className="flex flex-col mt-4">
-                        <label htmlFor="email" className="mb-2 font-semibold">Email</label>
-                        <input type="email" name="email" id="email" className="p-2 bg-awashama-black text-awashama-white" placeholder="awashama@example.com" required/>
+                    <form method="POST" action="/register" id="myForm" className="flex flex-col mt-4">
+                        <label htmlFor="username" className="mb-2 font-semibold">Username</label>
+                        <input type="text" name="username" id="username" className="p-2 bg-awashama-black text-awashama-white" placeholder="Input your username." required/>
 
                         <label htmlFor="password" className="mb-2 mt-4 font-semibold">Password</label>
                         <input type="password" name="password" id="password" className="p-2 bg-awashama-black text-awashama-white" placeholder="******" onChange={(e)=>{setPassword(e.target.value)}} required/>
 
                         <label htmlFor="confirmpassword" className="mb-2 mt-4 font-semibold">Confirm Password</label>
                         <input type="password" name="" id="" className="p-2 bg-awashama-black text-awashama-white" placeholder="******" onChange={(e)=>{setPasswordMatch(e.target.value)}} required/>
+
+                        <input type="hidden" name="role" id="role" value="user" />
                         
                         <p className={`font-semibold mt-1 p-2 text-awashama-white bg-awashama-red ${passwordConfirmed ? 'hidden' : ''}`}>Password tidak sama</p>
                         
