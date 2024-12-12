@@ -217,11 +217,15 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 * **Method**: POST
 * **Body Request**:
   ```bash
-  {
-  "nama_produk": "tanah",
-  "harga": 50000,
-  "stok": 50
-  }
+ {
+    "nama_produk": "drum", 
+    "harga": "50", 
+    "stok": "10",
+    "kategori": "pupuk",
+    "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
+    "deskripsi": "uhuy",
+    "berat": "500gr"
+} 
   ```
 * **Response**:  
   ○ **Sukses**:
@@ -236,7 +240,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
     **Salah Input**:
 
         ■ Status : 400  Eror
-        ■ Pesan : Nama produk, harga, dan stok harus diisi!
+        ■ Pesan : Data harus diisi!
 
    **Format Input Salah**:
 
@@ -536,17 +540,26 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Ada Data:
       [
         {
-        "id": 1,
-        "nama_produk": "pupuk",
-        "harga": 55,
-        "stok": 100
-        },
+           "id":1
+           "nama_produk": "pupuk", 
+           "harga": "50", 
+           "stok": "10",
+           "kategori": "pupuk",
+           "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
+           "deskripsi": "uhuy",
+           "berat": "500gr"
+        }, 
+
         {
-        "id": 3,
-        "nama_produk": "Beras",
-        "harga": 20000,
-        "stok": 100
-        }
+          "id":3
+          "nama_produk": "drum", 
+          "harga": "50", 
+          "stok": "10",
+          "kategori": "pupuk",
+          "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
+          "deskripsi": "uhuy",
+          "berat": "500gr"
+        } 
       ]
 
 **Melihat Data Produk By ID**
