@@ -217,7 +217,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 * **Method**: POST
 * **Body Request**:
   ```bash
- {
+    {
     "nama_produk": "drum", 
     "harga": "50", 
     "stok": "10",
@@ -225,7 +225,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
     "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
     "deskripsi": "uhuy",
     "berat": "500gr"
-} 
+    } 
   ```
 * **Response**:  
   ○ **Sukses**:
