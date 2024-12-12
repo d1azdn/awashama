@@ -948,7 +948,11 @@ Berikut adalah format data PEMBAYARAN yang digunakan
        {
         "nama_produk": "Sayur",
         "harga": 20000,
-        "stok": 100
+        "stok": 100,
+        "kategori": "pupuk",
+        "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
+        "deskripsi": "uhuy",
+        "berat": "500gr"
        }
   ```
 * **Response**:
