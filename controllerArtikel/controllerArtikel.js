@@ -5,14 +5,14 @@ const { checkRole } = require('../middlewares/authMiddleware');
 
 // POST (ADMIN)
 const addArtikel = async (req, res) => {
-    const { judul, deskripsi, kategori } = req.body;
+    const { judul, deskripsi, kategori, foto, tempat, sumber } = req.body;
 
-    if (!judul || !deskripsi || !kategori) {
+    if (!judul || !deskripsi || !kategori || !foto || !tempat || !sumber) {
         return res.status(400).json({ error: 'Data' });
     }
 
-    const sql = 'INSERT INTO artikel(judul, deskripsi, kategori) VALUES (?, ?, ?)';
-    connection.query(sql, [judul, deskripsi, kategori], (err, result) => {
+    const sql = 'INSERT INTO artikel(judul, deskripsi, kategori, foto, tempat, sumber) VALUES (?, ?, ?, ?, ?, ?)';
+    connection.query(sql, [judul, deskripsi, kategori, foto, tempat, sumber], (err, result) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ error: 'Gagal menambahkan Artikel' });
@@ -77,15 +77,15 @@ const getArtikelByIdUser = async (req, res) => {
 
 // PUT (ADMIN)
 const putArtikel = async (req, res) => {
-    const { judul, deskripsi, kategori} = req.body;
+    const {  judul, deskripsi, kategori, foto, tempat, sumber} = req.body;
     const artikelId = req.params.id;
 
-    if (!judul || !deskripsi || !kategori) {
+    if (!judul || !deskripsi || !kategori || !foto || !tempat || !sumber) {
         return res.status(400).send('Data harus diisi');
     }
-
-    const query = 'UPDATE artikel SET judul = ?, deskripsi = ?, kategori =? WHERE id = ?';
-    connection.query(query, [judul, deskripsi, kategori, artikelId], (err, result) => {
+  
+    const query = 'UPDATE artikel SET judul = ?, deskripsi = ?, kategori =?, foto = ?, tempat = ?, sumber = ? WHERE id = ?';
+    connection.query(query, [ judul, deskripsi, kategori, foto, tempat, sumber, artikelId], (err, result) => {
         if (err) {
             console.error('Error updating data:', err);
             return res.status(500).send('Error updating data');

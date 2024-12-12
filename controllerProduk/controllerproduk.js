@@ -5,14 +5,14 @@ const { checkRole } = require('../middlewares/authMiddleware');
 
 // Tambahkan produk
 const addProduk = async (req, res) => {
-    const { nama_produk, harga, stok } = req.body;
+    const { nama_produk, harga, stok, kategori, foto, deskripsi, berat } = req.body;
 
-    if (!nama_produk || !harga || !stok) {
-        return res.status(400).json({ error: 'Nama produk, harga, dan stok harus diisi!' });
+    if (!nama_produk || !harga || !stok || !kategori || !foto || !deskripsi || !berat) {
+        return res.status(400).json({ error: 'Data harus diisi!' });
     }
 
-    const sql = 'INSERT INTO produk (nama_produk, harga, stok) VALUES (?, ?, ?)';
-    connection.query(sql, [nama_produk, harga, stok], (err, result) => {
+    const sql = 'INSERT INTO produk (nama_produk, harga, stok, kategori, foto, deskripsi, berat) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    connection.query(sql, [nama_produk, harga, stok, kategori, foto, deskripsi, berat], (err, result) => {
         if (err) {
             console.error(err);
             return res.status(500).json({ error: 'Gagal menambahkan produk' });
@@ -77,15 +77,15 @@ const getProdukByIdUser = async (req, res) => {
 
 // Update produk
 const putProduk = async (req, res) => {
-    const { nama_produk, harga, stok } = req.body;
+    const { nama_produk, harga, stok, kategori, foto, deskripsi, berat } = req.body;
     const produkId = req.params.id;
 
     if (!nama_produk || !harga || !stok) {
         return res.status(400).send('Data harus diisi');
     }
 
-    const query = 'UPDATE produk SET nama_produk = ?, harga = ?, stok = ? WHERE id = ?';
-    connection.query(query, [nama_produk, harga, stok, produkId], (err, result) => {
+    const query = 'UPDATE produk SET nama_produk = ?, harga = ?, stok = ?, kategori = ?, foto = ?, deskripsi = ?, berat = ? WHERE id = ?';
+    connection.query(query, [nama_produk, harga, stok, kategori, foto, deskripsi, berat, produkId], (err, result) => {
         if (err) {
             console.error('Error updating data:', err);
             return res.status(500).send('Error updating data');
