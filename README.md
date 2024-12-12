@@ -956,19 +956,19 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Pesan : "Data tidak ditemukan"
 
 **Melakukan Pembaruan Data Produk**
-* **Endpoint**: PUT/dashboard/produk/3/ (ADMIN)
+* **Endpoint**: PUT/dashboard/produk/8/ (ADMIN)
 * **Method**: PUT
 * **Body Request**:
   ```bash
-       {
-        "nama_produk": "Sayur",
-        "harga": 200.000,
+        {
+        "nama_produk": "tanaman",
+        "harga": 400,
         "stok": 100,
-        "kategori": "pupuk",
+        "kategori": "antihama",
         "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
         "deskripsi": "uhuy",
-        "berat": "500gr"
-       }
+        "berat": "700gr"
+        }
   ```
 * **Response**:
 
@@ -992,12 +992,14 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 * **Method**: PUT
 * **Body Request**:
   ```bash
-      {
-        "id": 5,
-        "judul": "Petani",
-        "deskripsi": "kiwkiw",
-        "kategori": "berita"
-        }
+        {
+        "judul": "pupuk",
+        "deskripsi": "website awas hama menderita",
+        "kategori": "berita",
+        "foto": "https://tse2.mm.bing.net/th?id=OIP.HOanw7DslRm-broPmmiCdAHaE8&pid=Api&P=0&h=220",
+        "tempat": "palembang",
+        "sumber": "kompas.com"
+        }  
   ```
 * **Response**:
 
