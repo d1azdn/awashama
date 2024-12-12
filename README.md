@@ -252,18 +252,21 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 * **Method**: POST
 * **Body Request**:
   ```bash
-  {
-    "judul": "Petani adalah",
-    "deskripsi": "Panduan lengkap untuk pemula",
-    "kategori": "Panduan"
-  }
+    {
+    "judul": "beras", 
+    "deskripsi": "website awas hama menderita", 
+    "kategori": "berita",
+    "foto": "https://tse2.mm.bing.net/th?id=OIP.HOanw7DslRm-broPmmiCdAHaE8&pid=Api&P=0&h=220",
+    "tempat": "palembang",
+    "sumber": "kompas.com"
+    }
   ```
 * **Response**:  
   ○ **Sukses**:
      ```bash
      {
     "message": "Artikel berhasil ditambahkan",
-    "id": 9
+    "id": 10
      }
      ```
   ○ **Gagal**:
@@ -332,8 +335,8 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         "promo": "11.11",
         "note_pelanggan": "dipercepat boskuuu",
         "status": "dikemas"
-    }
-  ```
+        }
+   ```
 * **Response**:  
   ○ **Sukses**:
      ```bash
@@ -577,11 +580,15 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Ada Data:
 
         {
-        "id": 1,
-        "nama_produk": "pupuk",
-        "harga": 55,
-        "stok": 100
-        }
+        "id":1
+        "nama_produk": "pupuk", 
+        "harga": "50", 
+        "stok": "10",
+        "kategori": "pupuk",
+        "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
+        "deskripsi": "uhuy",
+        "berat": "500gr"
+        }, 
 
 **Melihat Data Artikel**
 * **Endpoint**: /get/artikel ( USER )
@@ -598,16 +605,22 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Ada Data:
       [
         {
-        "id": 1,
-        "judul": "Pilihan berkelanjutan yang kian diminati konsumen",
-        "deskripsi": "Permintaan produk organik terus meningkat mendorong",
-        "kategori": "berita"
+        "id": 10,
+        "judul": "beras",
+        "deskripsi": "website awas hama menderita",
+        "kategori": "berita",
+        "foto": "https://tse2.mm.bing.net/th?id=OIP.HOanw7DslRm-broPmmiCdAHaE8&pid=Api&P=0&h=220",
+        "tempat": "palembang",
+        "sumber": "kompas.com"
         },
         {
-        "id": 5,
-        "judul": "uhuy",
-        "deskripsi": "kiwkiw",
-        "kategori": "berita"
+        "id": 11,
+        "judul": "obat",
+        "deskripsi": "website awas hama menderita",
+        "kategori": "berita",
+        "foto": "https://tse2.mm.bing.net/th?id=OIP.HOanw7DslRm-broPmmiCdAHaE8&pid=Api&P=0&h=220",
+        "tempat": "palembang",
+        "sumber": "kompas.com"
         }
       ]
 
@@ -624,10 +637,13 @@ Berikut adalah format data PEMBAYARAN yang digunakan
 
         ■ Ada Data:
         {
-        "id": 1,
-        "judul": "Pilihan berkelanjutan yang kian diminati konsumen",
-        "deskripsi": "Permintaan produk organik terus meningkat mendorong",
-        "kategori": "berita"
+        "id": 10,
+        "judul": "beras",
+        "deskripsi": "website awas hama menderita",
+        "kategori": "berita",
+        "foto": "https://tse2.mm.bing.net/th?id=OIP.HOanw7DslRm-broPmmiCdAHaE8&pid=Api&P=0&h=220",
+        "tempat": "palembang",
+        "sumber": "kompas.com"
         }
 
 **Melihat Data Checkout**
