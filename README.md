@@ -988,7 +988,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Pesan : "Data tidak ditemukan"
 
 **Melakukan Pembaruan Data Artikel**
-* **Endpoint**: PUT/dashboard/artikel/5/ (ADMIN)
+* **Endpoint**: PUT/dashboard/artikel/10/ (ADMIN)
 * **Method**: PUT
 * **Body Request**:
   ```bash
