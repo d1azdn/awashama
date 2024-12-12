@@ -17,6 +17,8 @@ import Register from './pages/register.jsx';
 import Cart from './pages/cart.jsx';
 import AdminLayout from './pages/adminLayout.jsx';
 import DashboardProduct from './pages/admin/dashboardProduct.jsx';
+import DashboardArtikel from './pages/admin/dashboardArtikel.jsx';
+import EditDashboardArtikel from './pages/admin/editDashboardArtikel.jsx';
 
 function App() {
 
@@ -48,6 +50,8 @@ function App() {
 
         <Route path="/dashboard" element={<AdminLayout />}>
           <Route path="produk" element={<DashboardProduct />} />
+          <Route path="artikel" element={<DashboardArtikel />} />
+          <Route path="artikel/edit" element={<EditDashboardArtikel />} />
         </Route>
         
       </Routes>
