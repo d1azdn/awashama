@@ -947,7 +947,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
   ```bash
        {
         "nama_produk": "Sayur",
-        "harga": 20000,
+        "harga": 200.000,
         "stok": 100,
         "kategori": "pupuk",
         "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
