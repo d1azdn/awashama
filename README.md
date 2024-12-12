@@ -543,30 +543,29 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Ada Data:
       [
         {
-           "id":1
-           "nama_produk": "pupuk", 
-           "harga": "50", 
-           "stok": "10",
-           "kategori": "pupuk",
-           "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
-           "deskripsi": "uhuy",
-           "berat": "500gr"
-        }, 
-
+        "id": 8,
+        "nama_produk": "kikiw",
+        "harga": 500,
+        "stok": 100,
+        "kategori": "antihama",
+        "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
+        "deskripsi": "uhuy",
+        "berat": "700gr"
+        },
         {
-          "id":3
-          "nama_produk": "drum", 
-          "harga": "50", 
-          "stok": "10",
-          "kategori": "pupuk",
-          "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
-          "deskripsi": "uhuy",
-          "berat": "500gr"
-        } 
+        "id": 9,
+        "nama_produk": "gitar",
+        "harga": 50,
+        "stok": 10,
+        "kategori": "pupuk",
+        "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
+        "deskripsi": "uhuy",
+        "berat": "500gr"
+        }
       ]
 
 **Melihat Data Produk By ID**
-* **Endpoint**: /get/produk/1 ( USER )
+* **Endpoint**: /get/produk/8 ( USER )
 * **Endpoint**: /get/dashboard/prduk/1 ( ADMIN )
 * **Method**: GET
 * **Response**:
@@ -580,14 +579,14 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         ■ Ada Data:
 
         {
-        "id":1
-        "nama_produk": "pupuk", 
-        "harga": "50", 
-        "stok": "10",
-        "kategori": "pupuk",
+        "id": 8,
+        "nama_produk": "kikiw",
+        "harga": 500,
+        "stok": 100,
+        "kategori": "antihama",
         "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
         "deskripsi": "uhuy",
-        "berat": "500gr"
+        "berat": "700gr"
         }
 
 **Melihat Data Artikel**
