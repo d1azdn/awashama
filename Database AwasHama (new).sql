@@ -26,11 +26,14 @@ DROP TABLE IF EXISTS `artikel`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `artikel` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `judul` varchar(8000) NOT NULL,
+  `judul` varchar(255) NOT NULL,
   `deskripsi` varchar(300) NOT NULL,
-  `kategori` varchar(8000) NOT NULL,
+  `kategori` varchar(45) NOT NULL,
+  `foto` tinytext NOT NULL,
+  `tempat` varchar(45) NOT NULL,
+  `sumber` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,7 @@ CREATE TABLE `artikel` (
 
 LOCK TABLES `artikel` WRITE;
 /*!40000 ALTER TABLE `artikel` DISABLE KEYS */;
-INSERT INTO `artikel` VALUES (1,'Pilihan berkelanjutan yang kian diminati konsumen','Permintaan produk organik terus meningkat mendorong para petani','berita'),(5,'uhuy','kiwkiw','berita'),(6,'hahaha','mmmmmmmmmmmm','hahahahahahahaha');
+INSERT INTO `artikel` VALUES (1,'Pilihan berkelanjutan yang kian diminati konsumen','Permintaan produk organik terus meningkat mendorong para petani','berita','','',''),(5,'uhuy','kiwkiw','berita','','',''),(6,'hahaha','mmmmmmmmmmmm','hahahahahahahaha','','',''),(9,'hamaaaa','website awas hama menderita','berita','https://tse2.mm.bing.net/th?id=OIP.HOanw7DslRm-broPmmiCdAHaE8&pid=Api&P=0&h=220','palembang','kompas.com');
 /*!40000 ALTER TABLE `artikel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,9 +169,13 @@ CREATE TABLE `produk` (
   `nama_produk` varchar(45) NOT NULL,
   `harga` int DEFAULT NULL,
   `stok` int unsigned NOT NULL,
+  `kategori` varchar(45) NOT NULL,
+  `foto` text NOT NULL,
+  `deskripsi` varchar(45) NOT NULL,
+  `berat` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `produk_chk_1` CHECK ((`harga` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +184,7 @@ CREATE TABLE `produk` (
 
 LOCK TABLES `produk` WRITE;
 /*!40000 ALTER TABLE `produk` DISABLE KEYS */;
-INSERT INTO `produk` VALUES (1,'pupuk',55,100),(3,'Beras',20000,100),(5,'beras',50,10);
+INSERT INTO `produk` VALUES (1,'pupuk',55,100,'0','','',''),(3,'Beras',20000,100,'0','','',''),(5,'beras',50,10,'0','','',''),(8,'kikiw',500,100,'antihama','https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg','uhuy','700gr');
 /*!40000 ALTER TABLE `produk` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,4 +251,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-04 16:23:30
+-- Dump completed on 2024-12-12 16:21:06
