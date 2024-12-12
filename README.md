@@ -588,7 +588,7 @@ Berikut adalah format data PEMBAYARAN yang digunakan
         "foto": "https://www.noecho.net/uploads/wysiwyg/backtrack-band-photo.jpg",
         "deskripsi": "uhuy",
         "berat": "500gr"
-        }, 
+        }
 
 **Melihat Data Artikel**
 * **Endpoint**: /get/artikel ( USER )
