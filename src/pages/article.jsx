@@ -15,6 +15,7 @@ function ArtikelCardTop(props){
 }
 
 function ArtikelCard(props){
+    
     useEffect(() => {
         AOS.init();
       }, [])
@@ -32,15 +33,25 @@ function ArtikelCard(props){
     )
 }
 
+
+
 export default function Artikel(){
     const [articles, setArticles] = useState([]);
     const sortedArticles = articles.sort((a, b) => b.id - a.id);
 
+    const getData = async () =>{
+        const response = await fetch(import.meta.env.VITE_API_URL + '/artikel',{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials : "include"
+        })
+        setArticles(await response.json())
+    }
+
     useEffect(() => {
-        fetch("/articleTest.json")
-          .then((response) => response.json())
-          .then((data) => setArticles(data))
-          .catch((error) => console.error("Error fetching articles:", error));
+        getData()
       }, []);
     return(
         <>

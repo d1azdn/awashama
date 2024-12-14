@@ -1,4 +1,31 @@
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 export default function Sidebar(){
+    const [userInfo, setUserInfo] = useState([])
+    const [loginPopup, setLoginPopup] = useState(false)
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        const cekLogin = async () =>{
+            const response = await fetch(import.meta.env.VITE_API_URL + '/cekrole',{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials : "include"
+            })
+            const checkAdmin = await response.json()
+            if (checkAdmin?.role != 'admin'){
+                navigate('/')
+                return
+            }
+            setUserInfo(checkAdmin)
+        }
+
+        cekLogin()
+    },[])
+
     return(
         <>
         <nav className="p-8 grid grid-cols-1">

@@ -19,14 +19,21 @@ export default function ArtikelInfo(){
     const { id } = useParams();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        fetch("/articleTest.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const dataFind = data.find((item) => item.id === parseInt(id));
-            setArticle(dataFind)
+    const getData = async () =>{
+        const response = await fetch(import.meta.env.VITE_API_URL + '/artikel/'+id,{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials : "include"
         })
-          .catch((error) => console.error("Error fetching articles:", error));
+        setArticle(await response.json())
+    }
+
+    
+
+    useEffect(() => {
+        getData()
       }, []);
 
     return(
@@ -37,8 +44,8 @@ export default function ArtikelInfo(){
         
         <section className="grid grid-cols-4 mx-32 mt-5 gap-5 mb-32 animate-fade-right animate-duration-200">
             <section className="content col-span-3">
-                <div className="image-big bg-cover flex rounded-xl " style={{backgroundImage : `url('/src/assets/home/gambarhome.jpg')`}}>
-                    <h1 className="text-4xl font-semibold text-center justify-center w-full my-24 text-awashama-white">Beli kebutuhan anda.</h1>
+                <div className="image-big bg-cover flex rounded-xl bg-awashama-lightgray" style={{backgroundImage : article.foto}}>
+                    <h1 className="text-4xl font-semibold text-center justify-center w-full my-24 text-awashama-white">Artikel id : {article.id}</h1>
                 </div>
 
                 <h1 className="font-semibold text-xl mt-4">{article.judul}</h1>

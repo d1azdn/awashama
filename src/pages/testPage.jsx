@@ -7,17 +7,17 @@ export default function TestPage(){
 
 
         const cekData = async () =>{
-            const response = await fetch(import.meta.env.VITE_API_URL+'/login', {
+            const response = await fetch(import.meta.env.VITE_API_URL+'/artikel', {
             // const response = await fetch(import.meta.env.VITE_API_URL+'/check-login', {
-                method: 'POST',
-                // method: 'GET',
+                // method: 'POST',
+                method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',
                 },
-                body: (JSON.stringify({
-                    username : "asd",
-                    password : "123"
-                })),
+                // body: (JSON.stringify({
+                //     username : "asd",
+                //     password : "123"
+                // })),
                 credentials : "include"
               })
               if (!response.ok) {

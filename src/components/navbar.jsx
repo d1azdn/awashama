@@ -16,7 +16,7 @@ export function ListNavbar(props){
 
 export default function Navbar(){
 
-    const [role, setRole] = useState("")
+    const [userInfo, setUserInfo] = useState([])
     const [loginPopup, setLoginPopup] = useState(false)
     const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ export default function Navbar(){
                 },
                 credentials : "include"
             })
-            setRole(await response.text())
+            setUserInfo(await response.json())
         }
 
         cekLogin()
@@ -44,7 +44,7 @@ export default function Navbar(){
             credentials : "include"
         })
         setLoginPopup(!loginPopup)
-        setRole('guest')
+        setUserInfo({role:'guest'})
         navigate("/")
     }
     return(
@@ -64,10 +64,10 @@ export default function Navbar(){
                 <ListNavbar text="Artikel" href="/artikel"/>
                 <ListNavbar text="Toko" href="/toko"/>
                 
-                { role == "admin" ? 
+                { userInfo.role == "admin" ? 
                 (
                 <>
-                <button className="bg-awashama-yellow py-2 px-5 rounded-md font-semibold hover:scale-105 duration-200" onClick={()=>setLoginPopup(!loginPopup)}>Halo user</button>
+                <button className="bg-awashama-yellow py-2 px-5 rounded-md font-semibold hover:scale-105 duration-200" onClick={()=>setLoginPopup(!loginPopup)}>Halo, {userInfo.username}!</button>
                 <div className={`mt-28 fixed flex flex-col shadow-md ${loginPopup?'':'hidden'}`}>
                     <button className="bg-awashama-white hover:bg-awashama-lightgray ps-14 pe-6 py-3" onClick={()=>navigate("/dashboard/produk")}>Dashboard</button>
                     <button className="bg-awashama-white hover:bg-awashama-lightgray ps-14 pe-6 py-3" onClick={()=>handleLogout()}>Logout</button>
@@ -75,9 +75,9 @@ export default function Navbar(){
                 
                 </>
                 )
-                : role == "user" ?
+                : userInfo.role == "user" ?
                 <>
-                <button className="bg-awashama-yellow py-2 px-5 rounded-md font-semibold hover:scale-105 duration-200" onClick={()=>setLoginPopup(!loginPopup)}>Halo user</button>
+                <button className="bg-awashama-yellow py-2 px-5 rounded-md font-semibold hover:scale-105 duration-200" onClick={()=>setLoginPopup(!loginPopup)}>Halo, {userInfo.username}!</button>
                 <div className={`mt-16 fixed flex flex-col shadow-md ${loginPopup?'':'hidden'}`}>
                 <button className={`bg-awashama-white ps-14 pe-6 py-2 hover:bg-awashama-lightgray ${loginPopup?'':'hidden'}`} onClick={()=>handleLogout()}>Logout</button>
                 </div>
