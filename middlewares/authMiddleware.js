@@ -7,27 +7,31 @@ const connection = require('../db');
 // Middleware untuk memeriksa role
 function checkRole(role) {
     return (req, res, next) => {
-        if (req.isAuthenticated() && req.user.role === role) {
-            return next(); // Lanjut ke handler berikutnya
+        if (req.isAuthenticated()) {
+            if(req.user.role === role){
+                return next(); // Lanjut ke handler berikutnya
+            }
+            res.status(403).send('Anda tidak memiliki akses');
+        } else {
+            res.status(400).send('Anda belum login.');
         }
-        res.status(403).send('Akses ditolak. Anda tidak memiliki izin untuk mengakses halaman ini.');
     };
 };
 
-const getPasswordByUsername = (username) => {
-    return new Promise((resolve, reject) => {
-        const query = 'SELECT password FROM user WHERE username = ?';
-        connection.query(query, [username], (err, results) => {
-            if (err) {
-                reject(err); // Jika terjadi error, kembalikan error.
-            } else if (results.length === 0) {
-                resolve(null); // Jika username tidak ditemukan, kembalikan null.
-            } else {
-                resolve(results[0].password); // Ambil password dari hasil query.
-            }
-        });
-    });
-};
+// const getPasswordByUsername = (username) => {
+//     return new Promise((resolve, reject) => {
+//         const query = 'SELECT password FROM user WHERE username = ?';
+//         connection.query(query, [username], (err, results) => {
+//             if (err) {
+//                 reject(err); // Jika terjadi error, kembalikan error.
+//             } else if (results.length === 0) {
+//                 resolve(null); // Jika username tidak ditemukan, kembalikan null.
+//             } else {
+//                 resolve(results[0].password); // Ambil password dari hasil query.
+//             }
+//         });
+//     });
+// };
 
 //authen
 passport.use(new LocalStrategy((username, password, done) => {
@@ -139,18 +143,21 @@ const register = async (req, res) => {
     if (!username || !password)  {
         return res.status(400).send('Data berhasil di Tambahkan');
     }
-
+    
+    console.log(username, password,role)
     try {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-
         const query = 'INSERT INTO user (username, password, role) VALUES (?, ?, ?)';
         connection.query(query, [username, hashedPassword, role], (err, result) => {
-            if (err) {
-                console.error('Error inserting data:', err);
-                res.status(500).send('Error inserting data');
+            if (err.code == "ER_DUP_ENTRY") {
+                console.log(err)
+                res.status(400).send('Username already registered.');
                 return;
+            }
+            else {
+                res.status(500).send('Error inserting data');
             }
             res.status(201).send(`User berhasil ditambahkan dengan ID: ${result.insertId}`);
         });
@@ -162,24 +169,24 @@ const register = async (req, res) => {
 
 };
 
-const checkLogin = (req, res) => {
-    if (req.isAuthenticated()) {
-        return res.json({
-            loggedIn: true,
-            user: {
-                id: req.user.id,
-                username: req.user.username,
-                role: req.user.role,
-            },
-        });
-    }
+// const checkLogin = (req, res) => {
+//     if (req.isAuthenticated()) {
+//         return res.json({
+//             loggedIn: true,
+//             user: {
+//                 id: req.user.id,
+//                 username: req.user.username,
+//                 role: req.user.role,
+//             },
+//         });
+//     }
 
     
-    return res.json({
-        loggedIn: false,
-        message: 'Anda belum login.',
-    });
-};
+//     return res.json({
+//         loggedIn: false,
+//         message: 'Anda belum login.',
+//     });
+// };
 
 const logout = (req, res) => {
     req.logout((err) => {
@@ -189,4 +196,4 @@ const logout = (req, res) => {
         res.redirect('/'); 
     });
 };
-module.exports = {login, register, checkRole, checkLogin, logout}
+module.exports = {login, register, checkRole, logout}

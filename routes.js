@@ -1,5 +1,5 @@
 const express = require('express');
-const { checkRole, login, register, checkLogin, logout } = require('./middlewares/authMiddleware');
+const { checkRole, login, register, logout } = require('./middlewares/authMiddleware');
 const { addProduk, getProduk, getProdukById, getProdukUser, getProdukByIdUser, putProduk, deleteProduk } = require('./controllerProduk/controllerproduk');
 const { addArtikel, getArtikel, getArtikelById, putArtikel, deleteArtikel, getArtikelUser, getArtikelByIdUser } = require('./controllerArtikel/controllerArtikel');
 const { addCheckout, getCheckout, getCheckoutById, getCheckoutByIdUser, putCheckout, deleteCheckout, addCheckoutUser, getCheckoutUser } = require('./controllerCheckout/controllerCheckout');
@@ -14,23 +14,18 @@ const router = express.Router();
 //ROUTE LOGIN
 router.post ('/register', register)
 router.post ('/login', login)
-router.get('/check-login', checkLogin);
-router.get('/dashboard', checkRole('admin'), (req, res) => {
-    res.send('Selamat datang di dashboard admin!');
-});
-router.get('/logout', (req, res, next) => {
-    req.logout((err) => {
-        if (err) return next(err);
-        res.redirect('/');
-    });
-});
-router.get('/', (req, res) => {
-    if (req.isAuthenticated()) {
-        res.send(`Selamat datang, ${req.user.username}`);
-    } else {
-        res.send('Silakan login.');
-    }
-});
+// router.get('/check-login', checkLogin);
+// router.get('/dashboard', checkRole('admin'), (req, res) => {
+//     res.send('Selamat datang di dashboard admin!');
+// });
+router.get('/logout', logout);
+// router.get('/', (req, res) => {
+//     if (req.isAuthenticated()) {
+//         res.send(`Selamat datang, ${req.user.username}`);
+//     } else {
+//         res.send('Silakan login.');
+//     }
+// });
 //ROUTE LOGIN
 
 //ROUTE PRODUK
