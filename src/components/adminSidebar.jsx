@@ -9,14 +9,12 @@ export default function Sidebar(){
             <div className="splitter border border-solid my-6"></div>
             <section className="product-manage grid grid-cols-1 gap-1 mb-8">
                 <a href="/dashboard/produk" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Produk</a>
-                <a href="/dashboard/produk/edit" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Edit Produk</a>
+            </section>
+            <section className="checkout-manage grid grid-cols-1 gap-1 mb-8">
+                <a href="/dashboard/checkout" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Barang Checkout</a>
             </section>
             <section className="article-manage grid grid-cols-1 gap-1 mb-8">
                 <a href="/dashboard/artikel" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Artikel</a>
-                <a href="/dashboard/artikel/edit" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Edit Artikel</a>
-            </section>
-            <section className="checkout-manage grid grid-cols-1 gap-1">
-                <a href="/dashboard/checkout" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Barang Checkout</a>
             </section>
         </nav>
         </>

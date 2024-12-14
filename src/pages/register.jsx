@@ -5,6 +5,7 @@ export default function Register(){
     const navigate = useNavigate();
     const [password, setPassword] = useState("")
     const [passwordMatch, setPasswordMatch] = useState("a")
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [passwordConfirmed, setPasswordConfirmed] = useState(false)
 
@@ -18,6 +19,30 @@ export default function Register(){
           }, 500)
     },[passwordMatch])
 
+    const handleSubmit = async (e)=>{
+        e.preventDefault()
+        const form = e.target;
+        const formData = new FormData(form);
+        
+        const formDataJSON = {};
+        formData.forEach((value, key) => {
+            formDataJSON[key] = value;
+        });
+
+        const response = await fetch(import.meta.env.VITE_API_URL+'/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            mode:'cors',
+            body: JSON.stringify(formDataJSON),
+          })
+          if (!response.ok) {
+            const errorMessage = await response.text();
+            setErrorMessage(errorMessage);
+          }
+    }
+
     return(
         <>
         <section className="the-card p-16 flex justify-center h-full bg-gradient-to-tl from-awashama-darkgreen from-50% to-awashama-yellow">
@@ -25,6 +50,7 @@ export default function Register(){
                 <div className="bg-awashama-yellow rounded-full w-32 hover:scale-105 duration-200 mb-2">
                     <p className="block w-full h-full text-center p-3 cursor-pointer" onClick={()=>{navigate(-1)}}>Kembali</p>
                 </div>
+                
                 <div className="form-place bg-awashama-lightgreen p-10 rounded-lg shadow-xl">
                     <div className="top flex flex-col items-center mb-4">
                         <img src="./src/assets/logo-black.png" alt="..." width={150}/>
@@ -34,9 +60,14 @@ export default function Register(){
                     <h1 className="font-semibold mb-2 text-xl">Daftar</h1>
                     <div className="splitter border border-solid w-full"></div>
 
-                    <form method="POST" action="/register" id="myForm" className="flex flex-col mt-4">
+                    <form method="POST" action="#" id="myForm" onSubmit={handleSubmit} className="flex flex-col mt-4">
                         <label htmlFor="username" className="mb-2 font-semibold">Username</label>
                         <input type="text" name="username" id="username" className="p-2 bg-awashama-black text-awashama-white" placeholder="Input your username." required/>
+
+                        <div className={`bg-awashama-red p-2 mt-2 font-semibold text-awashama-white ${errorMessage ? '':'hidden'}`}>
+                            <p>{errorMessage}</p>
+                        </div>
+
 
                         <label htmlFor="password" className="mb-2 mt-4 font-semibold">Password</label>
                         <input type="password" name="password" id="password" className="p-2 bg-awashama-black text-awashama-white" placeholder="******" onChange={(e)=>{setPassword(e.target.value)}} required/>

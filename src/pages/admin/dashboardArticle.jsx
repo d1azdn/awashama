@@ -17,17 +17,20 @@ function CardDashboardArtikel(props){
                     <h1>id: {props.id}</h1>
                 </div>
                 <div className="text grid grid-cols-1 col-span-3">
-                    <h1 className="font-semibold mb-2">{props.judul}</h1>
+                    <h1 className="font-semibold mb-2 break-words">{props.judul}</h1>
                     <h1>{props.tanggal}</h1>
                 </div>
             </div>
-            <button className="font-semibold bg-awashama-red p-2 rounded-xl w-2/3 col-span-1" onClick={()=>deleteConfirmation(props.id)}>Hapus</button>
+            <div className="">
+                <a href={`/dashboard/artikel/edit/${props.id}`} className="font-semibold bg-awashama-yellow py-2 px-4 rounded-xl">Edit</a>
+                <button className="font-semibold bg-awashama-red p-2 rounded-xl" onClick={()=>deleteConfirmation(props.id)}>Hapus</button>
+            </div>
         </div>
         </>
     )
 }
 
-export default function DashboardArtikel(){
+export default function DashboardArticle(){
     const [openAddArticle, setOpenAddArticle] = useState(false)
 
     const [artikel, setArtikel] = useState([]);

@@ -15,11 +15,14 @@ function CardDashboardProduct(props){
                 <img src={props.imageUrl} alt="..." width={150}/>
                 <h1>id: {props.id}</h1>
             </div>
-            <h1>{props.namaproduk}</h1>
+            <h1 className="break-words">{props.namaproduk}</h1>
             <h1>null</h1>
             <h1>{props.harga}</h1>
             <h1>{props.stok}</h1>
-            <button className="font-semibold bg-awashama-red p-2 rounded-xl w-2/3" onClick={()=>deleteConfirmation(props.id)}>Hapus</button>
+            <div className="">
+                <a href={`/dashboard/produk/edit/${props.id}`} className="font-semibold bg-awashama-yellow py-2 px-4 rounded-xl">Edit</a>
+                <button className="font-semibold bg-awashama-red py-2 px-4 rounded-xl" onClick={()=>deleteConfirmation(props.id)}>Hapus</button>
+            </div>
         </div>
         </>
     )
