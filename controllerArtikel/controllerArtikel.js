@@ -8,6 +8,7 @@ const addArtikel = async (req, res) => {
     const { judul, deskripsi, kategori, foto, tempat, sumber } = req.body;
 
     if (!judul || !deskripsi || !kategori || !foto || !tempat || !sumber) {
+        console.log(req.body)
         return res.status(400).json({ error: 'Data' });
     }
 
@@ -49,31 +50,31 @@ const getArtikelById = async (req, res) => {
 };
 
 // GET (USER)
-const getArtikelUser = async (req, res) => {
-    const query = 'SELECT * FROM artikel';
-    connection.query(query, (err, results) => {
-        if (err) {
-            console.error('Gagal Menampilkan Artikel:', err);
-            return res.status(500).send('Gagal Menampilkan Artikel');
-        }
-        res.json(results);
-    });
-};
+// const getArtikelUser = async (req, res) => {
+//     const query = 'SELECT * FROM artikel';
+//     connection.query(query, (err, results) => {
+//         if (err) {
+//             console.error('Gagal Menampilkan Artikel:', err);
+//             return res.status(500).send('Gagal Menampilkan Artikel');
+//         }
+//         res.json(results);
+//     });
+// };
 
 // GET by id (USER)
-const getArtikelByIdUser = async (req, res) => {
-    const query = 'SELECT * FROM artikel WHERE id = ?';
-    connection.query(query, [req.params.id], (err, result) => {
-        if (err) {
-            console.error('Error fetching data:', err);
-            return res.status(500).send('Error fetching data');
-        }
-        if (result.length === 0) {
-            return res.status(404).send('artikel Tidak Ditemukan');
-        }
-        res.json(result[0]);
-    });
-};
+// const getArtikelByIdUser = async (req, res) => {
+//     const query = 'SELECT * FROM artikel WHERE id = ?';
+//     connection.query(query, [req.params.id], (err, result) => {
+//         if (err) {
+//             console.error('Error fetching data:', err);
+//             return res.status(500).send('Error fetching data');
+//         }
+//         if (result.length === 0) {
+//             return res.status(404).send('artikel Tidak Ditemukan');
+//         }
+//         res.json(result[0]);
+//     });
+// };
 
 // PUT (ADMIN)
 const putArtikel = async (req, res) => {
@@ -112,4 +113,4 @@ const deleteArtikel = async (req, res) => {
     });
 };
 
-module.exports = { addArtikel,  getArtikel, getArtikelById, getArtikelUser,  getArtikelByIdUser, putArtikel, deleteArtikel };
+module.exports = { addArtikel,  getArtikel, getArtikelById, putArtikel, deleteArtikel };

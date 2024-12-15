@@ -1,7 +1,7 @@
 const express = require('express');
-const { checkRole, login, register, logout } = require('./middlewares/authMiddleware');
-const { addProduk, getProduk, getProdukById, getProdukUser, getProdukByIdUser, putProduk, deleteProduk } = require('./controllerProduk/controllerproduk');
-const { addArtikel, getArtikel, getArtikelById, putArtikel, deleteArtikel, getArtikelUser, getArtikelByIdUser } = require('./controllerArtikel/controllerArtikel');
+const { checkRole, login, register, logout, cekRoleNavbarFrontend } = require('./middlewares/authMiddleware');
+const { addProduk, getProduk, getProdukById, putProduk, deleteProduk } = require('./controllerProduk/controllerproduk');
+const { addArtikel, getArtikel, getArtikelById, putArtikel, deleteArtikel } = require('./controllerArtikel/controllerArtikel');
 const { addCheckout, getCheckout, getCheckoutById, getCheckoutByIdUser, putCheckout, deleteCheckout, addCheckoutUser, getCheckoutUser } = require('./controllerCheckout/controllerCheckout');
 const { addPromo, getPromo, getPromoById, putPromo, getPromoByIdUser, getPromoUser, deletePromo } = require('./controllerPromo/controllerPromo');
 const { getUser, getUserById, putUser, deleteUser } = require('./controllerUser/controllerUser');
@@ -14,11 +14,12 @@ const router = express.Router();
 //ROUTE LOGIN
 router.post ('/register', register)
 router.post ('/login', login)
+router.get('/logout', logout);
+router.get('/cekrole', cekRoleNavbarFrontend)
 // router.get('/check-login', checkLogin);
 // router.get('/dashboard', checkRole('admin'), (req, res) => {
 //     res.send('Selamat datang di dashboard admin!');
 // });
-router.get('/logout', logout);
 // router.get('/', (req, res) => {
 //     if (req.isAuthenticated()) {
 //         res.send(`Selamat datang, ${req.user.username}`);
@@ -29,34 +30,34 @@ router.get('/logout', logout);
 //ROUTE LOGIN
 
 //ROUTE PRODUK
+router.get ('/produk',  getProduk)
+router.get ('/produk/:id',  getProdukById)
 router.post ('/dashboard/produk',  checkRole('admin'),addProduk)
-router.get ('/dashboard/produk', checkRole('admin'),getProduk)
-router.get ('/dashboard/produk/:id', checkRole('admin'),getProdukById)
-router.get ('/produk',  getProdukUser)
-router.get ('/produk/:id',  getProdukByIdUser)
 router.put ('/dashboard/produk/:id', checkRole('admin'), putProduk)
 router.delete ('/dashboard/produk/:id', checkRole('admin'),  deleteProduk)
+// router.get ('/dashboard/produk', checkRole('admin'),getProduk)
+// router.get ('/dashboard/produk/:id', checkRole('admin'),getProdukById)
 //ROUTE PRODUK END
 
 //ROUTE ARTIKEL
+router.get ('/artikel', getArtikel)
+router.get ('/artikel/:id', getArtikelById)
 router.post ('/dashboard/artikel', checkRole('admin'), addArtikel)
-router.get ('/dashboard/artikel',  checkRole('admin'), getArtikel)
-router.get ('/dashboard/artikel/:id',  checkRole('admin'), getArtikelById)
-router.get ('/artikel', getArtikelUser)
-router.get ('/artikel/:id', getArtikelByIdUser)
 router.put ('/dashboard/artikel/:id', checkRole('admin'), putArtikel)
 router.delete ('/dashboard/artikel/:id', checkRole('admin'), deleteArtikel)
+// router.get ('/dashboard/artikel',  checkRole('admin'), getArtikel)
+// router.get ('/dashboard/artikel/:id',  checkRole('admin'), getArtikelById)
 //ROUTE ARTIKEL END
 
 //ROUTE CHECKOUT
-router.post ('/dashboard/checkout', checkRole('admin'), addCheckout)
-router.post ('/checkout', addCheckoutUser)
-router.get ('/dashboard/checkout', checkRole('admin'), getCheckout)
-router.get ('/dashboard/checkout/:id', checkRole('admin'), getCheckoutById)
 router.get ('/checkout', getCheckoutUser)
-router.get ('/checkout/:id', getCheckoutByIdUser)
+router.post ('/checkout', addCheckoutUser)
+router.post ('/dashboard/checkout', checkRole('admin'), addCheckout)
 router.put ('/dashboard/checkout/:id', checkRole('admin'), putCheckout)
 router.delete ('/dashboard/checkout/:id', checkRole('admin'), deleteCheckout)
+// router.get ('/dashboard/checkout', checkRole('admin'), getCheckout)
+// router.get ('/dashboard/checkout/:id', checkRole('admin'), getCheckoutById)
+// router.get ('/checkout/:id', getCheckoutByIdUser)
 //ROUTE CHECKOUT END
 
 //ROUTE PROMO 

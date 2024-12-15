@@ -7,7 +7,8 @@ const { checkRole } = require('../middlewares/authMiddleware');
 const addCheckout = async (req, res) => {
     const { id_user, id_produk, jumlah_produk, jenis_pengiriman, alamat, metode_pembayaran, promo, note_pelanggan, status } = req.body;
 
-    if (!id_user || !id_produk || !jumlah_produk || !jenis_pengiriman || !alamat || !metode_pembayaran || !promo || !note_pelanggan || !status) {
+    if (!id_user || !id_produk || !jumlah_produk || !jenis_pengiriman) {
+        console.log(req.body)
         return res.status(400).json({ error: 'Data Harus Diisi' });
     }
 
@@ -25,7 +26,8 @@ const addCheckout = async (req, res) => {
 const addCheckoutUser = async (req, res) => {
     const { id_user, id_produk, jumlah_produk, jenis_pengiriman, alamat, metode_pembayaran, promo, note_pelanggan, status } = req.body;
 
-    if (!id_user || !id_produk || !jumlah_produk || !jenis_pengiriman || !alamat || !metode_pembayaran || !promo || !note_pelanggan || !status) {
+    if (!id_user || !id_produk || !jumlah_produk || !jenis_pengiriman) {
+        console.log(req.body)
         return res.status(400).json({ error: 'Data Harus Diisi' });
     }
 

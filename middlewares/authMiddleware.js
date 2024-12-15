@@ -18,6 +18,20 @@ function checkRole(role) {
     };
 };
 
+const cekRoleNavbarFrontend = (req, res, next) => {
+    if (req.isAuthenticated()){
+        res.status(200).json({
+            id : req.user.id,
+            username : req.user.username,
+            role : req.user.role
+        })
+    } else {
+        res.status(200).json({
+            role : 'guest'
+        })
+    }
+}
+
 // const getPasswordByUsername = (username) => {
 //     return new Promise((resolve, reject) => {
 //         const query = 'SELECT password FROM user WHERE username = ?';
@@ -124,15 +138,16 @@ const login = (req, res, next) => {
             }
 
             // Periksa role user untuk menentukan redirect
-            if (user.role === 'admin') {
-                return res.redirect('/dashboard'); // Redirect ke halaman admin
-            } else if (user.role === 'user') {
+            // if (user.role === 'admin') {
+            //     return res.redirect('/dashboard'); // Redirect ke halaman admin
+            // } else if (user.role === 'user') {
                 return res.redirect('/'); // Redirect ke halaman user
-            } else {
-                return res.status(403).send('Role tidak dikenali');
-            }
+            // } else {
+            //     return res.status(403).send('Role tidak dikenali');
+            // }
         });
-    })(req, res, next);
+    })
+    (req, res, next);
 };
 // ROUTE LOGIN END
 
@@ -196,4 +211,4 @@ const logout = (req, res) => {
         res.redirect('/'); 
     });
 };
-module.exports = {login, register, checkRole, logout}
+module.exports = {login, register, checkRole, cekRoleNavbarFrontend, logout}
