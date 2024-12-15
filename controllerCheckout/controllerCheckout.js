@@ -55,7 +55,7 @@ const getCheckout = async (req, res) => {
 
 //GET by id (ADMIN)
 const getCheckoutById = async (req, res) => {
-    const query = 'SELECT * FROM checkout WHERE id = ?';
+    const query = 'SELECT * FROM checkout WHERE id_user = ?';
     connection.query(query, [req.params.id], (err, result) => {
         if (err) {
             console.error('Error fetching data:', err);
@@ -64,7 +64,7 @@ const getCheckoutById = async (req, res) => {
         if (result.length === 0) {
             return res.status(404).send('Data Checkout Tidak Ditemukan');
         }
-        res.json(result[0]);
+        res.json(result);
     });
 };
 
@@ -81,31 +81,49 @@ const getCheckoutUser = async (req, res) => {
 };
 
 // GET by id (USER)
-const getCheckoutByIdUser = async (req, res) => {
-    const query = 'SELECT * FROM checkout WHERE id = ?';
-    connection.query(query, [req.params.id], (err, result) => {
-        if (err) {
-            console.error('Error fetching data:', err);
-            return res.status(500).send('Error fetching data');
-        }
-        if (result.length === 0) {
-            return res.status(404).send('Data Checkout Tidak Ditemukan');
-        }
-        res.json(result[0]);
-    });
-};
+// const getCheckoutByIdUser = async (req, res) => {
+//     const query = 'SELECT * FROM checkout WHERE id = ?';
+//     connection.query(query, [req.params.id], (err, result) => {
+//         if (err) {
+//             console.error('Error fetching data:', err);
+//             return res.status(500).send('Error fetching data');
+//         }
+//         if (result.length === 0) {
+//             return res.status(404).send('Data Checkout Tidak Ditemukan');
+//         }
+//         res.json(result[0]);
+//     });
+// };
 
-// PUT (ADMIN)
-const putCheckout = async (req, res) => {
-    const { id_user, id_produk, jumlah_produk, jenis_pengiriman, alamat, metode_pembayaran, promo, note_pelanggan, status } = req.body;
-    const checkoutId = req.params.id;
+const putCheckoutById = async (req, res) => {
+    const { id_user, nama, alamat, telepon, metode_pembayaran, promo, note_pelanggan, status } = req.body;
 
-    if (!id_user || !id_produk || !jumlah_produk || !jenis_pengiriman || !alamat || !metode_pembayaran || !promo || !note_pelanggan || !status) {
+    if (!id_user || !nama || !alamat || !telepon ||!metode_pembayaran || !status) {
         return res.status(400).send('Data harus diisi');
     }
 
-    const query = 'UPDATE checkout SET id_user = ?, id_produk = ?, jumlah_produk =?, jenis_pengiriman =?, alamat =?, metode_pembayaran =?, promo=?, note_pelanggan=?, status =? WHERE id = ?';
-    connection.query(query, [id_user, id_produk, jumlah_produk, jenis_pengiriman, alamat, metode_pembayaran, promo, note_pelanggan, status, checkoutId], (err, result) => {
+    const query = 'UPDATE checkout SET nama = ?, alamat =?, telepon=?, metode_pembayaran =?, promo=?, note_pelanggan=?, status =? WHERE id_user = ?';
+    connection.query(query, [nama, alamat, telepon, metode_pembayaran, promo, note_pelanggan, status, id_user], (err, result) => {
+        if (err) {
+            console.error('Error updating data:', err);
+            return res.status(500).send('Error updating data');
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).send('Id Checkout Tidak Ditemukan');
+        }
+        res.send('Data Checkout berhasil diperbarui');
+    });
+};
+// PUT (ADMIN)
+const putCheckoutAdmin = async (req, res) => {
+    const { id_cart, status } = req.body;
+
+    if (!id_cart || !status) {
+        return res.status(400).send('Data harus diisi');
+    }
+
+    const query = 'UPDATE checkout SET status =? WHERE id = ?';
+    connection.query(query, [status, id_cart], (err, result) => {
         if (err) {
             console.error('Error updating data:', err);
             return res.status(500).send('Error updating data');
@@ -118,7 +136,7 @@ const putCheckout = async (req, res) => {
 };
 
 // DELETE (ADMIN)
-const deleteCheckout = async (req, res) => {
+const deleteCheckoutById = async (req, res) => {
     const query = 'DELETE FROM checkout WHERE id = ?';
     connection.query(query, [req.params.id], (err, result) => {
         if (err) {
@@ -132,4 +150,4 @@ const deleteCheckout = async (req, res) => {
     });
 };
 
-module.exports = { addCheckout, addCheckoutUser, getCheckout, getCheckoutById, getCheckoutUser, getCheckoutByIdUser, putCheckout, deleteCheckout };
+module.exports = { addCheckout, addCheckoutUser, getCheckout, getCheckoutById, getCheckoutUser, deleteCheckoutById, putCheckoutById, putCheckoutAdmin };

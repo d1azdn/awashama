@@ -2,7 +2,7 @@ const express = require('express');
 const { checkRole, login, register, logout, cekRoleNavbarFrontend } = require('./middlewares/authMiddleware');
 const { addProduk, getProduk, getProdukById, putProduk, deleteProduk } = require('./controllerProduk/controllerproduk');
 const { addArtikel, getArtikel, getArtikelById, putArtikel, deleteArtikel } = require('./controllerArtikel/controllerArtikel');
-const { addCheckout, getCheckout, getCheckoutById, getCheckoutByIdUser, putCheckout, deleteCheckout, addCheckoutUser, getCheckoutUser } = require('./controllerCheckout/controllerCheckout');
+const { addCheckout, getCheckout, getCheckoutById, deleteCheckoutById, addCheckoutUser, putCheckoutById, putCheckoutAdmin } = require('./controllerCheckout/controllerCheckout');
 const { addPromo, getPromo, getPromoById, putPromo, getPromoByIdUser, getPromoUser, deletePromo } = require('./controllerPromo/controllerPromo');
 const { getUser, getUserById, putUser, deleteUser } = require('./controllerUser/controllerUser');
 const { addKeranjang, getKeranjangUser, getKeranjangByIdUser, putKeranjang, deleteKeranjang } = require('./controllerKeranjang/controllerKeranjang');
@@ -50,11 +50,16 @@ router.delete ('/dashboard/artikel/:id', checkRole('admin'), deleteArtikel)
 //ROUTE ARTIKEL END
 
 //ROUTE CHECKOUT
-router.get ('/checkout', getCheckoutUser)
-router.post ('/checkout', addCheckoutUser)
+router.get ('/checkout/:id', getCheckoutById) //userID required
+router.put ('/checkout/proses', putCheckoutById) //userID required
+router.post ('/checkout', addCheckoutUser) //userID required
+router.delete ('/checkout/:id', deleteCheckoutById) //userCartId required
+
+router.get ('/dashboard/checkout', checkRole('admin'), getCheckout) // for changing status ('dikirim' etc.) - GET
 router.post ('/dashboard/checkout', checkRole('admin'), addCheckout)
-router.put ('/dashboard/checkout/:id', checkRole('admin'), putCheckout)
-router.delete ('/dashboard/checkout/:id', checkRole('admin'), deleteCheckout)
+router.put ('/dashboard/checkout', checkRole('admin'), putCheckoutAdmin)
+
+// router.put ('/dashboard/checkout/:id', checkRole('admin'), putCheckout)
 // router.get ('/dashboard/checkout', checkRole('admin'), getCheckout)
 // router.get ('/dashboard/checkout/:id', checkRole('admin'), getCheckoutById)
 // router.get ('/checkout/:id', getCheckoutByIdUser)
