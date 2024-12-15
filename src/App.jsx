@@ -21,6 +21,8 @@ import DashboardArticle from './pages/admin/dashboardArticle.jsx';
 import EditDashboardArticle from './pages/admin/editDashboardArticle.jsx';
 import EditDashboardProduct from './pages/admin/editDashboardProduct.jsx';
 import TestPage from './pages/testPage.jsx';
+import CartStatus from './pages/cartStatus.jsx';
+import DashboardCheckout from './pages/admin/dashboardCheckout.jsx';
 
 function App() {
 
@@ -43,6 +45,10 @@ function App() {
           <Route index element={<Cart />} />
         </Route>
 
+        <Route path="/keranjang/status" element={<ShopLayout />}>
+          <Route index element={<CartStatus />} />
+        </Route>
+
         <Route path="/produk/:id" element={<ShopLayout />}>
           <Route index element={<Product />} />
         </Route>
@@ -54,6 +60,7 @@ function App() {
           <Route path="produk" element={<DashboardProduct />} />
           <Route path="produk/edit/:id" element={<EditDashboardProduct />} />
           <Route path="artikel" element={<DashboardArticle />} />
+          <Route path="checkout" element={<DashboardCheckout />} />
           <Route path="artikel/edit/:id" element={<EditDashboardArticle />} />
         </Route>
 
