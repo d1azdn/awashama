@@ -3,27 +3,61 @@ import { useParams } from 'react-router-dom';
 
 export default function EditDashboardProduct(){
     const [product, setProduct] = useState([]);
-    const [productLoad, setProductLoad] = useState(false);
+    const [successEdit, setSuccessEdit] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
     const { id } = useParams();
 
-    useEffect(() => {
-        fetch("/productTest.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const dataFind = data.find((item) => item.id === parseInt(id));
-            setProduct(dataFind)
-            setProductLoad(true)
+    const getData = async () =>{
+        const response = await fetch(import.meta.env.VITE_API_URL + '/produk/'+id,{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials : "include"
         })
-          .catch((error) => console.error("Error fetching product:", error));
-      }, []);
+        setProduct(await response.json())
+    }
+
+    const handleSubmit = async (e)=>{
+        e.preventDefault()
+        const form = e.target;
+        const formData = new FormData(form);
+        
+        const formDataJSON = {};
+        formData.forEach((value, key) => {
+            formDataJSON[key] = value;
+        });
+
+        const response = await fetch(import.meta.env.VITE_API_URL+'/dashboard/produk/'+id, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            mode:'cors',
+            body: JSON.stringify(formDataJSON),
+            credentials : "include"
+          })
+          if (!response.ok) {
+            const errorMessage = await response.text();
+            setErrorMessage(errorMessage);
+          } 
+          getData()
+          setSuccessEdit(!successEdit)
+    }
+
+    useEffect(()=>{
+        getData()
+    },[])
 
     return(
-        productLoad && (
+        product && (
         <>
+        <form action="#" method="PUT" onSubmit={handleSubmit}>
         <section className={`add-product p-16`}>
+                <p className={`bg-awashama-lightgreen p-3 ${successEdit?'':'hidden'}`}>Berhasil edit produk!</p>
                 <h1 className="font-semibold text-xl">Tambah produk</h1>
                 <h1>Id artikel yang di edit : {product?.id}</h1>
-                <h1>Nama produk : {product?.namaproduk}</h1>
+                <h1>Nama produk : {product?.nama_produk}</h1>
 
                 <div className="info-product p-6 bg-awashama-white mt-4 rounded-xl mb-4">
                     <h1 className="font-semibold text-lg mb-2">Informasi produk</h1>
@@ -31,10 +65,13 @@ export default function EditDashboardProduct(){
                     
                     <div className="form-style grid grid-cols-2 gap-2 items-center">
                         <label htmlFor="nama_produk" className="p-2">Nama produk</label>
-                        <input type="text" name="nama_produk" id="nama_produk" className="border border-solid rounded-xl p-2" placeholder="Masukkan nama produk" defaultValue={product?.namaproduk}/>
-
-                        <label htmlFor="kategori" className="p-2">Kategori</label>
-                        <input type="text" name="kategori" id="kategori" className="border border-solid rounded-xl p-2" placeholder="Masukkan kategori produk" defaultValue={product?.kategori} />
+                        <input type="text" name="nama_produk" id="nama_produk" className="border border-solid rounded-xl p-2" placeholder="Masukkan nama produk" defaultValue={product?.nama_produk}/>
+                        
+                        <label htmlFor="kategori" className="p-2">Kategori produk</label>
+                        <select name="kategori" id="kategori" className="border border-solid rounded-xl p-2" defaultValue={product?.kategori}>
+                            <option value="pupuk">Pupuk</option>
+                            <option value="antihama">Anti Hama</option>
+                        </select>
                     </div>
                 </div>
 
@@ -42,12 +79,12 @@ export default function EditDashboardProduct(){
                     <h1 className="font-semibold text-lg mb-2">Detail produk</h1>
                     <div className="splitter border border-solid my-2"></div>
                     
-                    <div className="form-style grid grid-cols-2 gap-2 items-center">
+                    <div className="form-style grid grid-cols-2 gap-2 items-start">
                         <label htmlFor="foto" className="p-2">Foto produk</label>
-                        <input type="text" name="foto" id="foto" className="border border-solid rounded-xl p-2" placeholder="Masukkan url foto" defaultValue={product?.imageUrl}/>
+                        <input type="text" name="foto" id="foto" className="border border-solid rounded-xl p-2" placeholder="Masukkan url foto" defaultValue={product?.foto}/>
 
                         <label htmlFor="deskripsi" className="p-2">Deskripsi produk</label>
-                        <input type="text" name="deskripsi" id="deskripsi" className="border border-solid rounded-xl p-2" placeholder="Masukkan deskripsi produk" defaultValue={product?.deskripsi}/>
+                        <textarea name="deskripsi" id="deskripsi" className="border border-solid rounded-xl p-2" placeholder="Masukkan deskripsi produk" defaultValue={product?.deskripsi} rows={20} cols={20} required />
                     </div>
                 </div>
 
@@ -83,6 +120,7 @@ export default function EditDashboardProduct(){
                     <button className="font-semibold text-lg p-3 bg-awashama-lightgreen text-awashama-black rounded-xl">Konfirmasi</button>
                 </div>
             </section>
+            </form>
         </>
         )
     )

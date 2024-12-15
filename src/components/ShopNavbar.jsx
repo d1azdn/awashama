@@ -1,5 +1,4 @@
 export function ListNavbar(props){
-    const pathIsTrue = location.pathname == props.href
     return(
         <>
         <li>

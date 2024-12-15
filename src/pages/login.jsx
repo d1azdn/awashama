@@ -39,7 +39,7 @@ export default function Login(){
                     <p>{errorMessage}</p>
                 </div>
                 <div className="bg-awashama-yellow rounded-full w-32 hover:scale-105 duration-200 mb-2">
-                    <p className="block w-full h-full text-center p-3 cursor-pointer" onClick={()=>{navigate(-1)}}>Kembali</p>
+                    <p className="block w-full h-full text-center p-3 cursor-pointer" onClick={()=>{navigate("/")}}>Kembali</p>
                 </div>
                 <div className="form-place bg-awashama-lightgreen p-10 rounded-lg shadow-xl">
                     <div className="top flex flex-col items-center mb-4">

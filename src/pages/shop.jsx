@@ -24,14 +24,21 @@ export default function Shop(){
     const [fixedProduct, setFixedProduct] = useState([]);
     const navigate = useNavigate();
 
+    const getData = async () =>{
+        const response = await fetch(import.meta.env.VITE_API_URL + '/produk',{
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials : "include"
+        })
+        const data = await response.json()
+        setProduct(data)
+        setFixedProduct(data)
+    }
+
     useEffect(() => {
-        fetch("/productTest.json")
-          .then((response) => response.json())
-          .then((data) => {
-            setFixedProduct(data)
-            setProduct(data)
-          })
-          .catch((error) => console.error("Error fetching articles:", error));
+        getData()
       }, []);
 
       function checkCategory(url){
@@ -44,7 +51,6 @@ export default function Shop(){
         const kategori = query.get('kategori')
 
         setProduct(fixedProduct.filter(item => item.kategori == kategori));
-        console.log('halol')
       }
 
     return(
@@ -73,7 +79,7 @@ export default function Shop(){
             <div className="list-product grid grid-cols-4 gap-5 mt-8">
                 {
                     product.map((item,index)=>(
-                        <ListProduct src={item.imageUrl} product={item.namaproduk} price={item.harga} id={item.id} key={index}/>
+                        <ListProduct src={item.imageUrl} product={item.nama_produk} price={item.harga} id={item.id} key={index}/>
                     ))
                 }
             </div>

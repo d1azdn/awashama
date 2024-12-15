@@ -55,8 +55,9 @@ export default function ArtikelInfo(){
             <section className="moreinfo col-span-1">
                 <div className="article-info bg-awashama-toolightgreen rounded-xl p-4">
                     <h1 className="font-semibold text-lg">{article.judul}</h1>
-                    <p className="font-light mb-4">Dibuat pada : {article.tanggal}</p>
-                    <p>{article.deskripsi?.substring(0,50)}...</p>
+                    <p className="font-light">Dibuat pada : {article.sumber}</p>
+                    <p className="font-light mb-4">Kategori : {article.kategori}</p>
+                    <p>{article.deskripsi?.slice(0,50)}...</p>
                 </div>
                 <div className="article-more flex flex-col gap-5 mt-5">
                 <ArtikelCardTop src={article.imageUrl} id={article.id} title={article.judul}/> 

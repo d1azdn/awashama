@@ -1,9 +1,22 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
+function SidebarList(props){
+    const location = useLocation()
+    const pathIsTrue = location.pathname == props.href
+    
+    return(
+        <>
+        <section className="product-manage grid grid-cols-1 mb-4">
+            <a href={props.href} className={`p-4 rounded-xl duration-200 ${pathIsTrue?'bg-awashama-lightgray':'hover:bg-awashama-toolightgray hover:shadow-md'}`}>{props.text}</a>
+        </section>
+        </>
+    )
+
+}
+
 export default function Sidebar(){
     const [userInfo, setUserInfo] = useState([])
-    const [loginPopup, setLoginPopup] = useState(false)
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -34,15 +47,9 @@ export default function Sidebar(){
                 <h1 className="text-xl">Saldo Rp.3000</h1>
             </section>
             <div className="splitter border border-solid my-6"></div>
-            <section className="product-manage grid grid-cols-1 gap-1 mb-8">
-                <a href="/dashboard/produk" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Produk</a>
-            </section>
-            <section className="checkout-manage grid grid-cols-1 gap-1 mb-8">
-                <a href="/dashboard/checkout" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Barang Checkout</a>
-            </section>
-            <section className="article-manage grid grid-cols-1 gap-1 mb-8">
-                <a href="/dashboard/artikel" className="p-2 hover:bg-awashama-toolightgray rounded-xl">Artikel</a>
-            </section>
+            <SidebarList href="/dashboard/produk" text="Produk"/>
+            <SidebarList href="/dashboard/checkout" text="Checkout"/>
+            <SidebarList href="/dashboard/artikel" text="Artikel"/>
         </nav>
         </>
     )
