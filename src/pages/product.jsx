@@ -8,8 +8,8 @@ export function ListProduct(props){
         <>
         <a href={`/produk/${props.id}`}>
         <div className="product bg-awashama-toolightgreen rounded-xl p-6 border-2 border-awashama-white hover:border-awashama-lightgreen border-solid duration-200 hover:cursor-pointer">
-            <img src={props.foto} alt="..." width={200} className="mb-4" />
-            <p className="mb-2">{props.product}</p>
+            <img src={props.foto} alt="..." className="mb-4 h-32 w-full object-cover" />
+            <p className="mb-2">{props.product.slice(0,20)}...</p>
             <h1 className="text-2xl font-semibold mb-2">Rp. {props.price}</h1>
         </div>
         </a>
@@ -130,7 +130,7 @@ export default function Product(){
         <section className="product mx-32 px-8 py-8 my-8 shadow-md border border-solid rounded-xl border-awashama-lightgreen">
             <div className="main-content flex flex-row gap-4">
                 <div className="images w-1/3 mb-4">
-                    <img src={product.imageUrl} alt="..." className="w-full" />
+                    <img src={product.foto} alt="..." className="w-full h-64 object-cover" />
                 </div>
                 <div className="content w-2/3">
                     <h1 className="text-4xl font-semibold">{product.nama_produk}</h1>
@@ -163,7 +163,8 @@ export default function Product(){
                         <input type="text" id="promo" name="promo" className='ps-5 py-3 w-1/2 rounded-xl bg-awashama-lightgreen text-awashama-white font-semibold placeholder-awashama-white' placeholder='Masukkan promo disini'/>
                     </div>
                 </div>
-                <div className="product-description bg-awashama-toolightgreen rounded-lg p-4 w-full mb-4">
+                <div className="product-description bg-awashama-toolightgreen rounded-lg p-4 w-full mb-4 whitespace-pre-wrap">
+                    <p className='mb-2 text-xl font-semibold'>Deskripsi produk</p>
                     <p>{product.deskripsi}</p>
                 </div>
             </div>
@@ -175,7 +176,7 @@ export default function Product(){
                 <div className="list-product grid grid-cols-4 gap-5 mb-16">
                 {
                     relatedProduct.map((item,index)=>(
-                        <ListProduct src={item.foto} product={item.nama_produk} price={item.harga} id={item.id} key={index}/>
+                        <ListProduct foto={item.foto} product={item.nama_produk} price={item.harga} id={item.id} key={index}/>
                     ))
                 }
                 </div>

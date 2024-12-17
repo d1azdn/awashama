@@ -21,8 +21,7 @@ function CardDashboardProduct(props){
         <>
         <div className="card grid grid-cols-6 p-2 items-center">
             <div className="img">
-                <img src={props.imageUrl} alt="..." width={125}/>
-                <h1>id: {props.id}</h1>
+                <img src={props.imageUrl} alt="..." className="w-32 h-32 object-cover"/>
             </div>
             <h1 className="break-words">{props.namaproduk}</h1>
             <h1>null</h1>

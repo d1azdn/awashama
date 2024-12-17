@@ -23,9 +23,9 @@ function ArtikelCard(props){
         <>
         <a href={`/artikel/${props.id}`}>
         <div className="card shadow-md p-6 rounded-lg hover:scale-105 duration-200 hover:cursor-pointer">
-          <img src={props.src} alt="..." className="w-full h-auto mb-4 rounded-lg" />
-          <h3 className="text-lg font-semibold mb-2 text-awashama-darkgray">{props.title}</h3>
-          <p className="text-awashama-gray mb-4">{props.text}</p>
+          <img src={props.src} alt="..." className="mb-4 h-32 w-full object-cover " />
+          <h3 className="text-lg font-semibold mb-2 text-awashama-darkgray">{props.title.slice(0,55)}...</h3>
+          <p className="text-awashama-gray mb-4">{props.text.slice(0,100)}...</p>
           <p className='font-semibold mt-2 inline-block'>Selengkapnya</p>
         </div>
         </a>
@@ -60,12 +60,12 @@ export default function Artikel(){
             <div className="cardList grid grid-cols-3 gap-2 h-96">
                 <div className="big">
                 {sortedArticles.slice(0,1).map((article) => (
-                    <ArtikelCardTop src={article.imageUrl} id={article.id} title={article.judul}/> 
+                    <ArtikelCardTop src={article.foto} id={article.id} title={article.judul}/> 
                 ))}
                 </div>
                 <div className="small grid grid-cols-2 gap-2 col-span-2">
                 {sortedArticles.slice(1,4).map((article) => (
-                    <ArtikelCardTop src={article.imageUrl} id={article.id} title={article.judul}/> 
+                    <ArtikelCardTop src={article.foto} id={article.id} title={article.judul}/> 
                 ))}
                 </div>
             </div>
@@ -76,7 +76,7 @@ export default function Artikel(){
 
             <div className="grid grid-cols-3 gap-6 mt-5" data-aos="fade-up">
             {articles.map((article) => (
-            <ArtikelCard key={article.id} id={article.id} src={article.imageUrl} title ={article.judul} text={article.deskripsi?.substring(0,100)}/>
+            <ArtikelCard key={article.id} id={article.id} src={article.foto} title ={article.judul} text={article.deskripsi}/>
             ))}
             </div>
         </section>

@@ -22,13 +22,12 @@ function CardDashboardArtikel(props){
         <>
         <div className="card grid grid-cols-6 items-center bg-awashama-white p-6 rounded-xl">
             <div className="content grid grid-cols-4 col-span-5">
-                <div className="img">
-                    <img src={props.foto} alt="..." width={150}/>
-                    <h1>id: {props.id}</h1>
+                <div className="img me-6">
+                    <img src={props.foto} alt="..." className="w-52 h-24 object-cover"/>
                 </div>
                 <div className="text grid grid-cols-1 col-span-3">
                     <h1 className="font-semibold mb-2 break-words">{props.judul}</h1>
-                    <h1>{props.deskripsi.slice(0,50)}...</h1>
+                    <h1>{props.deskripsi.slice(0,150)}...</h1>
                 </div>
             </div>
             <div className="">

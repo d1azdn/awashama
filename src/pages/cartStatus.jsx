@@ -12,8 +12,7 @@ function ProductList(props){
             <p>cart id : {props.id_cart}</p>
             </div>
             <div className="img">
-                <img src={props.foto} alt="..." width={125}/>
-                <h1>id: {props.productId}</h1>
+                <img src={props.foto} alt="..." className="w-32 h-32 object-cover"/>
                 <h1 className='break-words font-semibold text-lg'>{props.produk} </h1>
             </div>
             <h1>Rp. {props.harga}</h1>

@@ -4,16 +4,19 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export function ListProduct(props){
+
+    const navigate = useNavigate()
     return(
         <>
-        <a href={`/produk/${props.id}`}>
-        <div className="product bg-awashama-toolightgreen rounded-xl p-6 border-2 border-awashama-white hover:border-awashama-lightgreen border-solid duration-200 hover:cursor-pointer">
-            <img src={props.src} alt="..." width={200} className="mb-4" />
-            <p className="mb-2 font-semibold">{props.product}</p>
-            <h1 className="text-2xl font-semibold mb-2">Rp. {props.price}</h1>
-            <p className="rounded-lg text-center p-3 w-full duration-200">Detail Produk</p>
+        <div className="product bg-awashama-toolightgreen rounded-xl p-6 border-2 border-awashama-white hover:border-awashama-lightgreen border-solid duration-200 hover:cursor-pointer" onClick={()=>navigate('/produk/'+props.id)}>
+            <img src={props.src} alt="..." className="mb-4 h-32 w-full object-cover " />
+            <p className="mb-2 font-semibold">{props.product.slice(0,20)}...</p>
+            <div className="flex items-center">
+                <h1 className="text-2xl font-semibold mb-2">Rp. {props.price}</h1>
+                <h1 className=''>/{props.berat}</h1>
+            </div>
+            <p className="rounded-lg p-3 w-full duration-200 text-end bg-awashama-lightgreen font-bold">Lihat Produk</p>
         </div>
-        </a>
         </>
     )
 }
@@ -56,7 +59,7 @@ export default function Shop(){
     return(
         <>
         <div className="beranda mx-32 mt-5 bg-awashama-toolightgray shadow-md w-48 rounded-xl hover:bg-awashama-lightgray duration-200 hover:cursor-pointer">
-            <p className='p-3 font-semibold' onClick={()=>{navigate(-1)}}>Kembali ke beranda</p>
+            <p className='p-3 font-semibold' onClick={()=>{navigate("/")}}>Kembali ke beranda</p>
         </div>
 
         <section className="image-big bg-cover flex mx-32 mt-5 rounded-xl animate-fade-up" style={{backgroundImage : `url('./src/assets/home/gambarhome.jpg')`}}>
@@ -79,7 +82,7 @@ export default function Shop(){
             <div className="list-product grid grid-cols-4 gap-5 mt-8">
                 {
                     product.map((item,index)=>(
-                        <ListProduct src={item.imageUrl} product={item.nama_produk} price={item.harga} id={item.id} key={index}/>
+                        <ListProduct src={item.foto} product={item.nama_produk} price={item.harga} id={item.id} berat={item.berat} key={index}/>
                     ))
                 }
             </div>

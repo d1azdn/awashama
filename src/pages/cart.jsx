@@ -11,7 +11,7 @@ function ProductList(props){
     let runOnce = false
 
     const deleteConfirmation = async (id)=>{
-        if (window.confirm("Are you want to delete with id : "+id)){
+        if (window.confirm("Hapus keranjang dengan id : "+id+" ?")){
             const response = await fetch(import.meta.env.VITE_API_URL + '/checkout/'+id,{
                 method: 'DELETE',
                 headers: {
@@ -36,11 +36,9 @@ function ProductList(props){
         <div className="cart grid grid-cols-5 items-center">
             <div className="">
             <p className="bg-awashama-red p-2 mx-10 rounded-xl h-10 hover:bg-awashama-white hover:text-awashama-black text-awashama-white hover:cursor-pointer" onClick={()=>{deleteConfirmation(props.id_cart)}}>Hapus</p>
-            <p>cart id : {props.id_cart}</p>
             </div>
             <div className="img">
-                <img src={props.foto} alt="..." width={125}/>
-                <h1>id: {props.productId}</h1>
+                <img src={props.foto} alt="..." className="w-32 h-32 object-cover"/>
                 <h1 className='break-words font-semibold text-lg'>{props.produk} </h1>
             </div>
             <h1>Rp. {props.harga}</h1>
@@ -104,7 +102,7 @@ export default function Cart(){
             const errorMessage = await response.text();
             setErrorMessage(errorMessage);
           } else{
-            navigate("/keranjang/proses")
+            navigate("/keranjang/status")
           }
     }
 
@@ -177,7 +175,7 @@ export default function Cart(){
             <input type="hidden" name="id_user" id='id_user' defaultValue={userInfo.id}/>
             <input type="hidden" name="status" id='status' defaultValue={"proses"}/>
         <div className={`beranda mx-32 mt-5 bg-awashama-toolightgray shadow-md w-48 rounded-xl hover:bg-awashama-lightgray duration-200 hover:cursor-pointer ${moreFormPopup?'hidden':''}`}>
-            <p className='p-3 font-semibold' onClick={()=>{navigate(-1)}}>Kembali</p>
+            <p className='p-3 font-semibold' onClick={()=>{navigate("/toko")}}>Kembali</p>
         </div>
 
         <section className={`keranjang grid grid-cols-4 gap-5 mx-32 mt-2 mb-8 ${moreFormPopup?'hidden':''}`}>

@@ -5,6 +5,7 @@ function CardDashboardCheckout(props){
 
     const [errorMessage, setErrorMessage] = useState('')
     const { getKeranjang } = props
+    const { setSuccessEdit } = props
     const total = props.harga * props.jumlah_produk
 
     const handleSubmit = async (e)=>{
@@ -32,13 +33,14 @@ function CardDashboardCheckout(props){
             setErrorMessage(errorMessage);
           } 
           getKeranjang()
+          setSuccessEdit(true)
     }
 
 
     return(
         <>
         <form action="#" method="PUT" id="myForm" onSubmit={handleSubmit}>
-        <div className="card grid grid-cols-6 items-center bg-awashama-white p-6 rounded-xl">
+        <div className={`card grid grid-cols-6 items-center  p-6 rounded-xl me-4 ${props.status == 'selesai' ? 'border-2 border-solid border-awashama-darkgreen bg-awashama-toolightgreen':'bg-awashama-white'}`}>
             <div className="content grid grid-cols-4 col-span-5">
                 <div className="img">
                     <h1>id: {props.id}</h1>
@@ -75,6 +77,7 @@ function CardDashboardCheckout(props){
 export default function DashboardCheckout(){
     const [cart,setCart] = useState([])
     const [productInfo, setProductInfo] = useState([])
+    const [successEdit, setSuccessEdit] = useState(false)
     const navigate = useNavigate()
 
     const getKeranjang = async () =>{
@@ -114,10 +117,11 @@ export default function DashboardCheckout(){
     return(
         <>
         <section className="all bg-awashama-toolightgray h-full p-16">
+        <p className={`bg-awashama-lightgreen p-3 ${successEdit?'':'hidden'}`}>Berhasil edit produk!</p>
          <div className="topbar flex justify-between">
             <div className={`fonttop`}>
                 <h1 className="font-semibold text-xl">Daftar checkout</h1>
-                <h1>Ubah status apabila sudah waktunya.</h1>
+                <h1>Ubah status apabila sudah waktunya. Ubah proses menjadi 'keranjang' apabila ingin menolak pesanan.</h1>
             </div>
         </div>
 
@@ -136,6 +140,7 @@ export default function DashboardCheckout(){
 
                         status={item.status}
                         getKeranjang={getKeranjang}
+                        setSuccessEdit={setSuccessEdit}
                         key={item.id}/>
                     ))
                 }
