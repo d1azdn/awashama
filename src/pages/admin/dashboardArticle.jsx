@@ -97,7 +97,7 @@ export default function DashboardArticle(){
                     <h1 className="font-semibold text-xl">Daftar artikel</h1>
                     <h1>Pastikan artikel aman, kredibel, dan tidak melanggar aturan dan hukum</h1>
                 </div>
-            <button className="font-semibold px-5 py-3 bg-awashama-lightgreen rounded-xl hover:bg-awashama-darkgreen duration-200" onClick={()=>setOpenAddArticle(!openAddArticle)}>{openAddArticle?'Tutup halaman':'Tambah produk'}</button>
+            <button className="font-semibold px-5 py-3 bg-awashama-lightgreen rounded-xl hover:bg-awashama-darkgreen duration-200" onClick={()=>setOpenAddArticle(!openAddArticle)}>{openAddArticle?'Tutup halaman':'Tambah Artikel'}</button>
             </div>
 
             <form action="#" method="POST" onSubmit={handleSubmit}>

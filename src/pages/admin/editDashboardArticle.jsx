@@ -54,7 +54,7 @@ export default function EditDashboardArticle(){
         <>
         <form action="#" method="PUT" onSubmit={handleSubmit}>
         <section className={`edit-product p-16`}>
-                <p className={`bg-awashama-lightgreen p-3 ${successEdit?'':'hidden'}`}>Berhasil edit produk!</p>
+                <p className={`bg-awashama-lightgreen p-3 ${successEdit?'':'hidden'}`}>Berhasil edit artikel!</p>
                 <h1 className="font-semibold text-xl">Edit artikel</h1>
                 <h1>Id artikel yang di edit : {artikel?.id}</h1>
                 <h1>Judul artikel : {artikel?.judul}</h1>

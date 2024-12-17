@@ -64,7 +64,7 @@ export default function Artikel(){
                 ))}
                 </div>
                 <div className="small grid grid-cols-2 gap-2 col-span-2">
-                {sortedArticles.slice(1,4).map((article) => (
+                {sortedArticles.slice(1,5).map((article) => (
                     <ArtikelCardTop src={article.foto} id={article.id} title={article.judul}/> 
                 ))}
                 </div>
