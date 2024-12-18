@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+      },
+      {
+        "id": 2,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+      },
+      {
+        "id": 3,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+      },
+      {
+        "id": 4,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+      },
+      {
+        "id": 5,
+        "id_user": "1",
+        "id_produk": "1",
+        "jumlah_produk": 2,
+        "jenis_pengiriman": "jnt",
+        "alamat": "jl,Silaberanti GG Kelapa",
+        "metode_pembayaran": "transfer",
+        "promo": "23.11",
+        "note_pelanggan": "tolong di percepat ya proses nya"
+      }
+]
