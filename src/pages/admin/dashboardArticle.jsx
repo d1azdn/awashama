@@ -47,14 +47,11 @@ export default function DashboardArticle(){
     const navigate = useNavigate();
 
     const getData = async () =>{
-        const response = await fetch(import.meta.env.VITE_API_URL + '/artikel',{
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            credentials : "include"
+        fetch('/articleTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            setArtikel(data)
         })
-        setArtikel(await response.json())
     }
 
     const handleSubmit = async (e)=>{

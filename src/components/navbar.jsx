@@ -63,6 +63,7 @@ export default function Navbar(){
                 <ListNavbar text="Tentang" href="/tentang"/>
                 <ListNavbar text="Artikel" href="/artikel"/>
                 <ListNavbar text="Toko" href="/toko"/>
+                <a href="/dashboard/produk" className='font-semibold px-4 py-2 bg-awashama-yellow rounded-lg'>Dashboard</a>
                 
                 { userInfo.role == "admin" ? 
                 (

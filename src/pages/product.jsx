@@ -24,33 +24,27 @@ export default function Product(){
     const [successCheckout, setSuccessCheckout] = useState(false)
     const [relatedProduct, setRelatedProduct] = useState([]);
     const [userInfo, setUserInfo] = useState();
+    const { id } = useParams();
 
     const [jumlah, setJumlah] = useState(1);
-    const { id } = useParams();
     const navigate = useNavigate()  
 
     const getData = async () =>{
-        const response = await fetch(import.meta.env.VITE_API_URL + '/produk/'+id,{
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            credentials : "include"
+        fetch('/productTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            const filteredProduct = data.filter(product => product.id == id)
+            console.log(filteredProduct)
+            setProduct(filteredProduct[0])
         })
-        const data = await response.json()
-        setProduct(data)
     }
 
     const getAllProduct = async () =>{
-        const response = await fetch(import.meta.env.VITE_API_URL + '/produk',{
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            credentials : "include"
+        fetch('/productTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            setAllProduct(data)
         })
-        const data = await response.json()
-        setAllProduct(data)
     }
 
     const handleSubmit = async (e)=>{
@@ -95,23 +89,6 @@ export default function Product(){
     },[jumlah])
 
     useEffect(() => {
-        const cekUser = async () =>{
-            const response = await fetch(import.meta.env.VITE_API_URL + '/cekrole',{
-                method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                credentials : "include"
-            })
-            const checkAdmin = await response.json()
-            if (checkAdmin?.role == 'guest'){
-                navigate('/login')
-                return
-            }
-            setUserInfo(checkAdmin)
-        }
-        cekUser()
-
         getData()
         getAllProduct()
       }, []);

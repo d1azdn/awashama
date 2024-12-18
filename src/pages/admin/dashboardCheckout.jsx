@@ -81,39 +81,26 @@ export default function DashboardCheckout(){
     const navigate = useNavigate()
 
     const getKeranjang = async () =>{
-        try{
-            const response = await fetch(import.meta.env.VITE_API_URL + '/dashboard/checkout',{
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials : "include"
-            })
-            const data = await response.json()
-            setCart(data.filter(item=>item.status != "keranjang"))
-        }catch(error){
-            setCart('')
-        }
-        
+        fetch('/cartTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            const filteredProduct = data.filter(product => product.status != "keranjang")
+            setCart(filteredProduct)
+        })   
+    }
+
+    const getAllProduct = async () =>{
+        fetch('/productTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            setProductInfo(data)
+        })
     }
 
     useEffect(() => {
-        const getProduk = async () =>{
-            const response = await fetch(import.meta.env.VITE_API_URL + '/produk',{
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials : "include"
-            })
-            const data = await response.json()
-            setProductInfo(data)
-        }
-
-        getProduk()
-        
         getKeranjang()
-        }, []);
+        getAllProduct()
+      }, []);
     return(
         <>
         <section className="all bg-awashama-toolightgray h-full p-16">

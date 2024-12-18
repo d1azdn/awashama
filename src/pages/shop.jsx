@@ -28,18 +28,13 @@ export default function Shop(){
     const navigate = useNavigate();
 
     const getData = async () =>{
-        const response = await fetch(import.meta.env.VITE_API_URL + '/produk',{
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            credentials : "include"
+        fetch('/productTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            setProduct(data)
+            setFixedProduct(data)    
         })
-        const data = await response.json()
-        setProduct(data)
-        setFixedProduct(data)
     }
-
     useEffect(() => {
         getData()
       }, []);

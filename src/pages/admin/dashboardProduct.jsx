@@ -42,14 +42,11 @@ export default function DashboardProduct(){
     const [product, setProduct] = useState([]);
 
     const getData = async () =>{
-        const response = await fetch(import.meta.env.VITE_API_URL + '/produk',{
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            credentials : "include"
+        fetch('/productTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            setProduct(data)
         })
-        setProduct(await response.json())
     }
 
     const handleSubmit = async (e)=>{

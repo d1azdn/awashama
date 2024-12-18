@@ -31,60 +31,25 @@ export default function CartStatus(){
     const navigate = useNavigate()
 
     const getKeranjang = async () =>{
-        try{
-            const response = await fetch(import.meta.env.VITE_API_URL + '/checkout/'+userInfo.id,{
-                method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                credentials : "include"
-            })
-            const data = await response.json()
-            setCart(data.filter(item=>item.status != "keranjang"))
-        }catch(error){
-            setCart('')
-        }
-        
+        fetch('/cartTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            const filteredProduct = data.filter(product => product.status != "keranjang")
+            setCart(filteredProduct)
+        })   
     }
 
-    useEffect(()=>{
-        if (userInfo!=''){
-            const getProduk = async () =>{
-                const response = await fetch(import.meta.env.VITE_API_URL + '/produk',{
-                    method: 'GET',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    credentials : "include"
-                })
-                const data = await response.json()
-                setProductInfo(data)
-            }
-
-            getProduk()
-            
-            getKeranjang()
-
-        }
-    },[userInfo])
+    const getAllProduct = async () =>{
+        fetch('/productTest.json')
+        .then(response=>response.json())
+        .then(data=>{
+            setProductInfo(data)
+        })
+    }
 
     useEffect(() => {
-        const cekUser = async () =>{
-            const response = await fetch(import.meta.env.VITE_API_URL + '/cekrole',{
-                method: 'GET',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                credentials : "include"
-            })
-            const checkAdmin = await response.json()
-            if (checkAdmin?.role == 'guest'){
-                navigate('/login')
-                return
-            }
-            setUserInfo(checkAdmin)
-        }
-        cekUser()
+        getKeranjang()
+        getAllProduct()
       }, []);
     return(
         <>
