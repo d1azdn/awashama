@@ -1,0 +1,44 @@
+[
+    {
+        "id": 31,
+        "id_user": "25",
+        "id_produk": "8",
+        "jumlah_produk": 1,
+        "jenis_pengiriman": "jne",
+        "nama": "diaz",
+        "alamat": "Sukabumi",
+        "telepon": "089966775454",
+        "metode_pembayaran": "gopay",
+        "promo": "",
+        "note_pelanggan": "",
+        "status": "keranjang"
+    },
+    {
+        "id": 32,
+        "id_user": "25",
+        "id_produk": "8",
+        "jumlah_produk": 1,
+        "jenis_pengiriman": "jne",
+        "nama": "diaz",
+        "alamat": "Sukabumi",
+        "telepon": "089966775454",
+        "metode_pembayaran": "gopay",
+        "promo": "",
+        "note_pelanggan": "",
+        "status": "keranjang"
+    },
+    {
+        "id": 33,
+        "id_user": "25",
+        "id_produk": "3",
+        "jumlah_produk": 1,
+        "jenis_pengiriman": "jne",
+        "nama": "diaz",
+        "alamat": "Sukabumi",
+        "telepon": "089966775454",
+        "metode_pembayaran": "gopay",
+        "promo": "",
+        "note_pelanggan": "",
+        "status": "proses"
+    }
+]

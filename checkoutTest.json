@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "id_user": "user123",
+      "id_produk": "produk001",
+      "jumlah_produk": 2,
+      "jenis_pengiriman": "Express",
+      "alamat": "Jl. Mawar No. 45, Jakarta",
+      "metode_pembayaran": "Kartu Kredit",
+      "promo": "DISKON10",
+      "note_pelanggan": "Tolong kirim sebelum jam 3 sore.",
+      "status": "dikemas"
+    },
+    {
+      "id": 2,
+      "id_user": "user123",
+      "id_produk": "produk002",
+      "jumlah_produk": 1,
+      "jenis_pengiriman": "Reguler",
+      "alamat": "Jl. Mawar No. 45, Jakarta",
+      "metode_pembayaran": "Transfer Bank",
+      "promo": "",
+      "note_pelanggan": "Pastikan paket tidak rusak.",
+      "status": "dikirim"
+    },
+    {
+      "id": 3,
+      "id_user": "user123",
+      "id_produk": "produk003",
+      "jumlah_produk": 5,
+      "jenis_pengiriman": "Reguler",
+      "alamat": "Jl. Mawar No. 45, Jakarta",
+      "metode_pembayaran": "COD",
+      "promo": "GRATISONGKIR",
+      "note_pelanggan": "Sertakan struk pembelian.",
+      "status": "berhasil"
+    },
+    {
+      "id": 4,
+      "id_user": "user13",
+      "id_produk": "produk004",
+      "jumlah_produk": 3,
+      "jenis_pengiriman": "Express",
+      "alamat": "Jl. Mawar No. 45, Jakarta",
+      "metode_pembayaran": "E-Wallet",
+      "promo": "DISKON20",
+      "note_pelanggan": "Paketkan dalam kotak yang kuat.",
+      "status": "dikemas"
+    }
+  ]
+  
